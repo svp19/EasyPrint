@@ -12,7 +12,13 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2', ]
 
+
 class PrintForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(PrintForm, self).__init__(*args, **kwargs)
+
     class Meta:
         model = PrintDocs
         fields = ['description', 'document', 'colour', 'copies', ]

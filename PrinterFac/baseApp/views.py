@@ -2,6 +2,7 @@
 
 from django.shortcuts import render
 
+
 def home(request):
     return render(request, 'ground/home.html', {'title': 'Home'})
 

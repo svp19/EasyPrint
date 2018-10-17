@@ -28,7 +28,7 @@ class PrintDocs(models.Model):
     description = models.CharField(max_length=255, default='')
     document = models.FileField(upload_to='media/documents/')
     date_uploaded = models.DateTimeField(auto_now_add=True)
-    colour = models.BooleanField(default=False) # 0 for black
+    colour = models.BooleanField(default=False)  # 0 for black
     copies = models.SmallIntegerField(default=1)
     task_by = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user))
 

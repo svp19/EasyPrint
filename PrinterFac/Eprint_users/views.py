@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.models import User
 from . forms import PrintForm, UserRegisterForm
 # from . models import Bill {'tasks': Bill.objects.all()}
 
@@ -15,18 +16,21 @@ def register(request):
 
     else:
         form = UserRegisterForm()
-    return render(request, 'Eprint_users/register.html', {'form' : form})
+    return render(request, 'Eprint_users/register.html', {'form': form})
+
 
 def history(request):
     return render(request, 'Eprint_users/history.html')
 
 
-def PrintUpload(request):
+def print_upload(request):
     if request.method == 'POST':
-        form = PrintForm(request.POST, request.FILES)
+        form = PrintForm(request.POST, request.FILES, user=request.user)
         if form.is_valid():
-            form.save()
+            my_form = form.save(False)
+            my_form.task_by = User.objects.get(username=request.user)
+            my_form.save()
             return redirect('baseApp-home')
     else:
-        form = PrintForm()
+        form = PrintForm(user=request.user)
     return render(request, 'Eprint_users/upload.html', {'form': form})
