@@ -30,6 +30,7 @@ class PrintDocs(models.Model):
     date_uploaded = models.DateTimeField(auto_now_add=True)
     colour = models.BooleanField(default=False) # 0 for black
     copies = models.SmallIntegerField(default=1)
+    task_by = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user))
 
     def __str__(self):
         return self.document.name
