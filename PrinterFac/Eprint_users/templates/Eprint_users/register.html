@@ -5,7 +5,8 @@
     margin: 10px;" class="register-form">
         <form method="post">
             {% csrf_token %}
-            {{ form|crispy }}
+            {{ user_form|crispy }}
+            {{ profile_form|crispy }}
             <button class="btn btn-primary" type="submit">Sign Up</button>
         </form>
     <small class="text-muted">Already have an account? <a href="#">Log In</a> </small>

@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 def get_sentinel_user():  # Sets a user to deleted when a task of a delete user is requested
@@ -22,15 +24,30 @@ def get_sentinel_user():  # Sets a user to deleted when a task of a delete user 
 #
 #     def __str__(self):
 #         return self.doc_name + ', ' + str(self.date_added)
+#
 
 
-# class Profile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     image = models.ImageField(default='default.png', upload_to='profile_pics')
-#
-#     def __str__(self):
-#         return f'{self.user.username} Profile'
-#
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    amount_due = models.DecimalField(default=0, max_digits=10, decimal_places=2)
+    bio = models.TextField(max_length=500, blank=True)
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+    birth_date = models.DateField(null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
 
 class PrintDocs(models.Model):
     description = models.CharField(max_length=255, default='')
@@ -39,6 +56,10 @@ class PrintDocs(models.Model):
     colour = models.BooleanField(default=False)  # 0 for black
     copies = models.SmallIntegerField(default=1)
     task_by = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user))
+    num_pages = models.SmallIntegerField(default=1)
+    price = models.DecimalField(default=0, max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.document.name
+
+
