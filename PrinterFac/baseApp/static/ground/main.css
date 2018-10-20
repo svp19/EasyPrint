@@ -36,3 +36,24 @@ body {
     font-size: 50px;
     transition: ease-in 300ms;
 }
+
+/* ---------------------------------- Home page ends ------------------------------------*/
+
+.bill-table {
+    border: 1px dashed black;
+    width: 100%;
+    text-align: center;
+}
+.bill-table th {
+    border-bottom: 1px dashed black;
+    border-right: 1px dashed black;
+}
+
+.bill-table td {
+    border-right: 1px dashed black;
+}
+
+/* --------------------------------- Crispy Form Tags -----------------------------------*/
+.asteriskField {
+    color: #cc1111;
+}

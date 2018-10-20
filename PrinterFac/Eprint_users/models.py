@@ -52,12 +52,15 @@ def save_user_profile(sender, instance, **kwargs):
 class PrintDocs(models.Model):
     description = models.CharField(max_length=255, default='')
     document = models.FileField(upload_to='media/documents/')
+    file_name = models.CharField(max_length=500, default='no_name_given')
     date_uploaded = models.DateTimeField(auto_now_add=True)
     colour = models.BooleanField(default=False)  # 0 for black
     copies = models.SmallIntegerField(default=1)
     task_by = models.ForeignKey(User, on_delete=models.SET(get_sentinel_user))
     num_pages = models.SmallIntegerField(default=1)
     price = models.DecimalField(default=0, max_digits=10, decimal_places=2)
+    completed = models.BooleanField(default=False)
+    paid = models.BooleanField(default=False)
 
     def __str__(self):
         return self.document.name

@@ -26,7 +26,7 @@ def register(request):
 
 
 def history(request):
-    return render(request, 'Eprint_users/history.html')
+    return render(request, 'Eprint_users/history.html', {'tasks' : request.user.printdocs_set.all()})
 
 
 def print_upload(request):
@@ -41,6 +41,7 @@ def print_upload(request):
             # Upload to database
             my_form = form.save(False)
             my_form.task_by = User.objects.get(username=request.user)
+            my_form.file_name = request.FILES['document'].name
 
             # Count Number Of Pages and calc Price
             pdf_file = request.FILES['document'].open()
@@ -53,6 +54,7 @@ def print_upload(request):
             user = User.objects.get(username=request.user)
             new_amount_due = float(my_form.price) + float(user.profile.amount_due)
             Profile.objects.filter(user=request.user).update(amount_due=new_amount_due)
+
             return redirect('baseApp-home')
     else:
         form = PrintForm(user=request.user)

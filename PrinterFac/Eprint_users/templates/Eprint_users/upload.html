@@ -1,7 +1,7 @@
 {% extends "ground/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="d-flex flex-row justify-content-center">
+    <div class="mt-2">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
