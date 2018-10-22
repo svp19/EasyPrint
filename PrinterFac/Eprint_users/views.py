@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from . forms import PrintForm, UserRegisterForm, ProfileForm
 from .models import Profile
 from PyPDF2 import PdfFileReader
@@ -9,26 +10,37 @@ from PyPDF2 import PdfFileReader
 
 
 def register(request):
-    if request.method == 'POST':
-        user_form = UserRegisterForm(request.POST)
-        profile_form = ProfileForm(request.POST, instance=request.user.profile)
-        if user_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            username = user_form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created successfully, {username}!')
-            return redirect('baseApp-home')
-
+    if request.user.is_authenticated:
+        return redirect('baseApp-home')
     else:
-        user_form = UserRegisterForm()
-        profile_form = ProfileForm()
-    return render(request, 'Eprint_users/register.html', {'user_form': user_form, 'profile_form': profile_form})
+        if request.method == 'POST':
+            user_form = UserRegisterForm(request.POST)
+            profile_form = ProfileForm(request.POST, instance=request.user.profile)
+            if user_form.is_valid():
+                user_form.save()
+                profile_form.save()
+                username = user_form.cleaned_data.get('username')
+                messages.success(request, f'Your account has been created successfully, {username}!')
+                return redirect('baseApp-home')
+
+        else:
+            user_form = UserRegisterForm()
+            profile_form = ProfileForm()
+        return render(request, 'Eprint_users/register.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
+@login_required
 def history(request):
-    return render(request, 'Eprint_users/history.html', {'tasks' : request.user.printdocs_set.all()})
+    return render(request, 'Eprint_users/history.html', {'tasks': request.user.printdocs_set.all()})
 
 
+@login_required
+def bill(request):
+    return render(request, 'Eprint_users/bill.html', {'not_paid_tasks': request.user.printdocs_set.filter(paid=False),
+                                                      'total_due': request.user.profile.amount_due})
+
+
+@login_required
 def print_upload(request):
 
     # Define const Price here

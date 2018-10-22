@@ -127,3 +127,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'baseApp-home'
 
+LOGIN_URL = 'login' # Redirect with @login_required
+

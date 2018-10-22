@@ -1,0 +1,23 @@
+{% extends "ground/base.html" %}
+{% block content %}
+    <center>
+        <h1>Bill</h1><br><br>
+        <table class="bill-table" border="1|0">
+            <tr>
+                <th>Document Name</th>
+                <th>Date Added</th>
+                <th>Price</th>
+            </tr>
+            {% for task in not_paid_tasks %}
+                <tr>
+                    <td>{{ task.file_name }}</td>
+                    <td>{{ task.date_uploaded }}</td>
+                    <td>{{ task.price }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3">Grand Total: {{ total_due }}</td>
+            </tr>
+        </table>
+    </center>
+{% endblock content %}

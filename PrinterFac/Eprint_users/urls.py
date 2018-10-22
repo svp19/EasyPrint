@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.history, name='users-history'),
     path('upload/', views.print_upload, name='users-upload'),
     path('register/', views.register, name='users-register'),
+    path('bill/', views.bill, name='users-bill')
 ]
