@@ -1,11 +1,15 @@
 {% extends "ground/base.html" %}
 {% block content %}
-    <div class="dual-wrapper">
+
+<a style="color:black;float:right;margin-right: 2%" href="{% url 'logout' %}"><h5>Logout</h5></a>
+<div class="dual-wrapper">
         <a href="{% url 'users-upload' %}"><div class="first-cont">
             <span class="home-heading">Print a new document</span>
         </div></a>
         <a href="{% url 'users-history' %}"><div class="second-cont">
             <span class="home-heading">View printing history</span>
         </div></a>
+
     </div>
+
 {% endblock content %}

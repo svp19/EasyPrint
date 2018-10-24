@@ -36,6 +36,18 @@
                                 PENDING
                             </span>
                         {% endif %}
+                        {% if task.collected %}
+                            <span class="badge badge-success align-middle">
+                                <i class="fas fa-rupee-sign"></i>
+                                Collected
+                            </span>
+                        {% else %}
+                            <span class="badge badge-danger align-middle">
+                                <i class="fas fa-rupee-sign"></i>
+                                Not Collected
+                            </span>
+                        {% endif %}
+
                     </td>
                 </tr>
             {% endfor %}

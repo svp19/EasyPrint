@@ -61,6 +61,7 @@ class PrintDocs(models.Model):
     price = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     completed = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
+    collected = models.BooleanField(default=False)
 
     def __str__(self):
         return self.document.name
