@@ -1,0 +1,34 @@
+{% extends "ground/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1> Recent Tasks </h1>
+        <form method="post" enctype="multipart/form-data">
+            {{ formset.management_form }}
+            {% csrf_token %}
+            {{ formset.non_form_errors.as_ul }}
+            <table id="formset" class="form">
+            {% for form in formset.forms %}
+              {% if forloop.first %}
+              <thead><tr>
+                {% for field in form.visible_fields %}
+                <th>{{ field.label|capfirst }}</th>
+                {% endfor %}
+              </tr></thead>
+              {% endif %}
+              <tr>
+              {% for field in form.visible_fields %}
+                <td>
+                {# Include the hidden fields in the form #}
+                {% if forloop.first %}
+                  {% for hidden in form.hidden_fields %}
+                  {{ hidden }}
+                  {% endfor %}
+                {% endif %}
+                    {{ field }}
+                </td>
+              {% endfor %}
+              </tr>
+            {% endfor %}
+            </table><input type="submit" value="Save">
+        </form>
+{% endblock content %}

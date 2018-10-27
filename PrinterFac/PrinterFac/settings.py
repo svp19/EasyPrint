@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'crispy_forms',
     'Eprint_users.apps.EprintUsersConfig',
+    'Eprint_admin.apps.EprintAdminConfig',
     'baseApp.apps.GroundConfig',
     'django.contrib.admin',
     'django.contrib.auth',
