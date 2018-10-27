@@ -67,3 +67,9 @@ class PrintDocs(models.Model):
         return self.document.name
 
 
+# class UpdateDocs(models.Model):
+#     completed = models.BooleanField(default=False)
+#     paid = models.BooleanField(default=False)
+#     collected = models.BooleanField(default=False)
+
+

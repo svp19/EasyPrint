@@ -53,6 +53,16 @@ body {
     border-right: 1px dashed black;
 }
 
+.print-list tr{
+    background-color: #009eff;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.print-list td {
+    padding: 10px;
+}
+
 /* --------------------------------- Crispy Form Tags -----------------------------------*/
 .asteriskField {
     color: #cc1111;

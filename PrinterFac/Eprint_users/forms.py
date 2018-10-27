@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from validate_email import validate_email
 from . models import PrintDocs
 from .models import Profile
 
@@ -17,7 +16,6 @@ class UserRegisterForm(UserCreationForm):
 
     def clean_email(self):
         email_passed = self.cleaned_data.get('email')
-        # is_valid = validate_email(email_passed, verify=True)
         if '@iitdh.ac.in' not in email_passed:
             raise forms.ValidationError("Invalid Email. Please register with your email registered to IIT Dharwad")
 
@@ -50,4 +48,3 @@ class PrintForm(forms.ModelForm):
     class Meta:
         model = PrintDocs
         fields = ['description', 'document', 'colour', 'copies', ]
-
