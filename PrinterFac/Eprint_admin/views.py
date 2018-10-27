@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from Eprint_users.models import PrintDocs
 from . forms import UpdateForm
@@ -6,28 +7,40 @@ from . forms import UpdateForm
 def tasks(request):
     docs = PrintDocs.objects.all()
     forms = []
+    edits = {x: False for x in range(len(docs))}
+
     if request.method == 'POST':
         i = -1
         for doc in docs:
             i += 1
             temp_doc = PrintDocs.objects.filter(id=doc.id).first()
-
             if request.POST.get('completed' + str(i)) is None:
-                temp_doc.completed = False
+                if temp_doc.completed is True:
+                    temp_doc.completed = False
+                    edits[i] = True
             elif request.POST.get('completed' + str(i)) == 'on':
-                temp_doc.completed = True
+                if temp_doc.completed is False:
+                    temp_doc.completed = True
+                    edits[i] = True
             if request.POST.get('paid' + str(i)) is None:
-                temp_doc.paid = False
+                if temp_doc.paid is True:
+                    temp_doc.paid = False
+                    edits[i] = True
             elif request.POST.get('paid' + str(i)) == 'on':
-                temp_doc.paid = True
+                if temp_doc.paid is False:
+                    temp_doc.paid = True
+                    edits[i] = True
             if request.POST.get('collected' + str(i)) is None:
-                temp_doc.collected = False
+                if temp_doc.collected is True:
+                    temp_doc.collected = False
+                    edits[i] = True
             elif request.POST.get('collected' + str(i)) == 'on':
-                temp_doc.collected = True
+                if temp_doc.collected is False:
+                    temp_doc.collected = True
+                    edits[i] = True
             temp_doc.save()
 
-            temp_form = UpdateForm(request.POST, instance=temp_doc)
-            forms.append(temp_form)
+        messages.success(request, 'Successfully updated {0} document(s)'.format(sum(edits.values())))
         return redirect('admin-tasks')
     else:
         for doc in docs:

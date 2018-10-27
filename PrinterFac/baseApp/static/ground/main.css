@@ -53,14 +53,25 @@ body {
     border-right: 1px dashed black;
 }
 
-.print-list tr{
-    background-color: #009eff;
-    text-align: left;
-    border-radius: 10px;
+.print-list {
+    border-spacing: 10px;
 }
 
-.print-list td {
+.print-list tr {
+    margin-bottom: 12px;
+}
+.print-list td{
+    background-color: #95d9ff;
+    text-align: left;
     padding: 10px;
+}
+
+.print-list td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}.print-list td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 /* --------------------------------- Crispy Form Tags -----------------------------------*/

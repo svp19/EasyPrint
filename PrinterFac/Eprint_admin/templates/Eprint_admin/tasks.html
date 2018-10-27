@@ -2,10 +2,14 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <center>
+
         <h1>Tasks</h1><br><br>
+
         <form method="post" enctype="multipart/form-data">
+
             {% csrf_token %}
-            <table class="print-list">
+
+            <table class="print-list table-responsive">
                 <tr>
                     <th>Document</th>
                     <th>User</th>
@@ -13,7 +17,9 @@
                 </tr>
                 {% for mytask in context %}
                     <tr>
-                        <td>{{ mytask.0.file_name }}</td>
+                        <td>{{ mytask.0.file_name }}<br>
+                            <span class="small text-muted">{{ mytask.0.date_uploaded }}</span>
+                        </td>
                         <td>{{ mytask.0.task_by }}</td>
                         <td>
                         {% for element in mytask.1 %}
@@ -26,9 +32,13 @@
                     </tr>
                 {% endfor %}
             </table>
+
             <br>
+
             <button class="btn btn-primary">Update</button>
 
         </form>
+
+
     </center>
 {% endblock content %}

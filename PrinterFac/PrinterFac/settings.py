@@ -136,3 +136,5 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'svp.develop@gmail.com'
 EMAIL_HOST_PASSWORD = 'ZaqwsXMko145'
 EMAIL_PORT = 25
+
+

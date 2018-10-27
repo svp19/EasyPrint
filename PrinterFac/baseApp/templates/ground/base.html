@@ -17,7 +17,11 @@
 <body>
     {% if messages %}
         {% for message in messages %}
-            {{ message }}
+            <center>
+            <ul style="list-style: none;">
+            <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            </ul>
+            </center>
         {% endfor %}
     {% endif %}
     {% block content %}
