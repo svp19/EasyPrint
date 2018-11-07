@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'ground/favicon.png' %}"/>
     <!--Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans">
     <!-- Font Awesome -->
@@ -23,9 +24,9 @@
     <!-- Static -->
     <link rel="stylesheet" type="text/css" href="{% static 'ground/main.css' %}">
     {% if title %}
-        <title>PrintFac - {{ title }}</title>
+        <title>EasyPrint - {{ title }}</title>
     {% else %}
-        <title>PrintFac</title>
+        <title>EasyPrint</title>
     {% endif %}
 </head>
 <body>
@@ -50,7 +51,7 @@
                 Menu
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="{% url 'users-profile' %}">Profile</a>
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
               </div>
             </li>
@@ -58,7 +59,7 @@
         <!--Links for Small screens-->
         <ul class="mynavbarsmall navbar-nav ml-auto d-block d-md-none">
             <li class="nav-item" >
-              <a style="color: #fff;" href="#"> Profile </a>
+              <a style="color: #fff;" href="{% url 'users-profile' %}"> Profile </a>
             </li>
             <li class="nav-item">
               <a style="color: #fff;" href="{% url 'logout' %}"> Logout </a>

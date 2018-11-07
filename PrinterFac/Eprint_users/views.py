@@ -3,16 +3,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from . forms import PrintForm, UserRegisterForm, ProfileForm
-from .models import Profile
+from . models import Profile
 from PyPDF2 import PdfFileReader
-
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
-from .tokens import account_activation_token
+from . tokens import account_activation_token
 from django.core.mail import EmailMessage
+from Eprint_admin.models import RatePerPage
 
 '''pip install PyPDF2'''
 
@@ -84,7 +84,8 @@ def bill(request):
 def print_upload(request):
 
     # Define const Price here
-    rate_per_page = 3.00
+    rate_per_page_bw = RatePerPage.objects.first().rppBW
+    rate_per_page_c = RatePerPage.objects.first().rppC
 
     if request.method == 'POST':
         form = PrintForm(request.POST, request.FILES, user=request.user)
@@ -99,6 +100,10 @@ def print_upload(request):
             pdf_file = request.FILES['document'].open()
             num_pages = PdfFileReader(pdf_file, strict=False).getNumPages()
             my_form.num_pages = num_pages
+            if request.POST.get('colour'):
+                rate_per_page = rate_per_page_c
+            elif not request.POST.get('colour'):
+                rate_per_page = rate_per_page_bw
             my_form.price = float(request.POST.get('copies')) * num_pages * rate_per_page
             my_form.save()
 
