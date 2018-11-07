@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="" />
+    <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/static/ground/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/static/ground/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,53 +122,111 @@
     <session id="-826805969">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.65" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="17" />
-          <entry key="py" value="42" />
+          <entry key="css" value="2" />
+          <entry key="html" value="22" />
+          <entry key="png" value="1" />
+          <entry key="py" value="44" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="17" />
+          <entry key="CSS" value="2" />
+          <entry key="HTML" value="22" />
+          <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="42" />
+          <entry key="Python" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="245" />
-          <entry key="py" value="3680" />
+          <entry key="css" value="540" />
+          <entry key="html" value="1033" />
+          <entry key="py" value="3690" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="245" />
-          <entry key="Python" value="3680" />
+          <entry key="CSS" value="540" />
+          <entry key="HTML" value="1033" />
+          <entry key="Python" value="3690" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Eprint_admin/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1540666875511" expanded="true" signature="155:157" ph="..." />
-                <marker date="1540666875511" expanded="true" signature="276:281" ph="..." />
-              </folding>
+            <state relative-caret-position="380">
+              <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="21" column="95" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baseApp/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="4" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="4" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -167,44 +234,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2363">
-              <caret line="139" selection-start-line="139" selection-end-line="139" />
+            <state relative-caret-position="2580">
+              <caret line="129" selection-start-line="129" selection-end-line="129" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Eprint_admin/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-              <folding>
-                <marker date="1540627583973" expanded="true" signature="65:119" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Eprint_admin/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <marker date="1540611482785" expanded="true" signature="103:108" ph="..." />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/baseApp/static/ground/translogo.png">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -241,14 +279,10 @@
         <option value="$PROJECT_DIR$/baseApp/models.py" />
         <option value="$PROJECT_DIR$/baseApp/admin.py" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html" />
-        <option value="$PROJECT_DIR$/baseApp/templates/ground/login.html" />
-        <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html" />
         <option value="$PROJECT_DIR$/Eprint_users/admin.py" />
-        <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" />
         <option value="$PROJECT_DIR$/baseApp/urls.py" />
         <option value="$PROJECT_DIR$/Eprint_users/urls.py" />
-        <option value="$PROJECT_DIR$/baseApp/templates/ground/home.html" />
         <option value="$PROJECT_DIR$/baseApp/views.py" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/history.html" />
         <option value="$PROJECT_DIR$/Eprint_admin/templates/tasks.html" />
@@ -258,13 +292,17 @@
         <option value="$PROJECT_DIR$/PrinterFac/urls.py" />
         <option value="$PROJECT_DIR$/Eprint_users/models.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/forms.py" />
-        <option value="$PROJECT_DIR$/baseApp/static/ground/main.css" />
         <option value="$PROJECT_DIR$/Eprint_users/views.py" />
-        <option value="$PROJECT_DIR$/PrinterFac/settings.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/models.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" />
-        <option value="$PROJECT_DIR$/baseApp/templates/ground/base.html" />
         <option value="$PROJECT_DIR$/Eprint_admin/views.py" />
+        <option value="$PROJECT_DIR$/baseApp/templates/ground/home.html" />
+        <option value="$PROJECT_DIR$/PrinterFac/settings.py" />
+        <option value="$PROJECT_DIR$/baseApp/templates/ground/login.html" />
+        <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" />
+        <option value="$PROJECT_DIR$/baseApp/templates/ground/base.html" />
+        <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html" />
+        <option value="$PROJECT_DIR$/baseApp/static/ground/main.css" />
       </list>
     </option>
   </component>
@@ -275,8 +313,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="697" />
+    <option name="x" value="-10" />
+    <option name="width" value="700" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -285,6 +323,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,11 +349,46 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="ground" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="baseApp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="baseApp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="ground" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,12 +403,13 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_users" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_admin" />
       <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_admin\templates\Eprint_admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\S V Praveen\Documents\GitHub\EPrint\PrinterFac\baseApp\static\ground" />
+      <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_users" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -389,14 +464,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2065053" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2147651" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.30983606" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.30738255" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -405,7 +481,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015129" side_tool="true" weight="0.29787233" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" weight="0.2967213" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" visible="true" weight="0.2966443" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.27540985" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -494,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="91" lean-forward="true" selection-start-line="13" selection-start-column="91" selection-end-line="13" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baseApp/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -518,34 +587,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baseApp/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-          <folding>
-            <element signature="e#54#111#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -574,9 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="69" column="33" lean-forward="true" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -584,9 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -601,16 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="74" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -621,64 +650,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1540666875511" expanded="true" signature="155:157" ph="..." />
-            <marker date="1540666875511" expanded="true" signature="276:281" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="139" selection-start-line="139" selection-end-line="139" />
+        <state relative-caret-position="880">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="160">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-          <folding>
-            <marker date="1540627583973" expanded="true" signature="65:119" ph="..." />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <marker date="1540611482785" expanded="true" signature="103:108" ph="..." />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="95" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2580">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/translogo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>

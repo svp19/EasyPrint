@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:900" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'ground/main.css' %}">
     {% if title %}
@@ -15,6 +19,43 @@
     {% endif %}
 </head>
 <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background: rgb(18,23,34)">
+      <!-- Brand -->
+      <a class="mynavbarlogo navbar-brand mr-auto" style="color:white" href="{% url 'baseApp-home' %}">
+      <img src="{% static 'ground/translogo.png' %}" style="width: 20%" >
+      Easy Print
+      </a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto d-none d-md-block">
+          <!-- Dropdown [hidden on small screens] -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Settings
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+              </div>
+            </li>
+        </ul>
+        <!--Links for Small screens-->
+        <ul class="mynavbarsmall navbar-nav ml-auto d-block d-md-none">
+            <li class="nav-item" >
+              Profile
+            </li>
+            <li class="nav-item">
+              Logout
+            </li>
+        </ul>
+      </div>
+    </nav>
     {% if messages %}
         {% for message in messages %}
             <center>

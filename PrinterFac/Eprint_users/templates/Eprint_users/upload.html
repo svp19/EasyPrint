@@ -1,13 +1,18 @@
 {% extends "ground/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="mt-2">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <button class="btn btn-primary" type="submit">Upload</button>
-        </form>
+    <div class="container-fluid col-md-4 content-below-nav">
+        <div class="card p-3 ">
+        <div class="mt-2">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-primary" type="submit">Upload</button>
+            </form>
+        </div>
+        </div>
+    <p><a href="{% url 'baseApp-home' %}">Return to home</a></p>
     </div>
 
-  <p><a href="{% url 'baseApp-home' %}">Return to home</a></p>
+
 {% endblock content %}
