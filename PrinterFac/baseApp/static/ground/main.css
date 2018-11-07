@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
+    padding-top: 0px;
     border: 0;
 }
 
@@ -18,7 +18,7 @@ body {
 }
 
 .mynavbarsmall{
-    background: rgb(0,0,0,0.3);
+    background: rgba(0,0,0,0.3);
     margin-top: 2%;
     color: white;
 }
@@ -52,9 +52,14 @@ body {
     line-height: 100vh;
     background-color: white;
 }
+
+.small-btn.btn { /* Small Buttons */
+    padding: .4rem 1.5rem;
+}
+
 .col-md-6{
     text-align: center;
-    padding: 0%;
+    padding: 0;
 }
 .col-md-6 a{
     display:block;
@@ -79,30 +84,14 @@ body {
 /* ---------------------------------- Home page ends ------------------------------------*/
 
 .bill-table {
-    border: 1px dashed black;
-    width: 100%;
+    width: 80%;
     text-align: center;
 }
-.bill-table th {
-    border-bottom: 1px dashed black;
-    border-right: 1px dashed black;
-}
 
-.bill-table td {
-    border-right: 1px dashed black;
-}
-
-.print-list {
-    border-spacing: 10px;
-}
-
-.print-list tr {
-    margin-bottom: 12px;
-}
 .print-list td{
     background-color: #95d9ff;
-    text-align: left;
-    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .print-list td:last-child {

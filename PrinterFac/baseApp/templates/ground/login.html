@@ -2,19 +2,21 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="container-fluid col-md-4 content-below-nav">
+    <center><h2>Login</h2></center>
         <div class="card p-3 ">
-        <form method="POST">
-            {%  csrf_token %}
-            <fieldset>
-                <legend>Login</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div>
-                <button type="submit"> Log In</button>
-            </div>
-        </form>
-        <small class="text-muted">Don't have an account? <a href='{% url 'users-register' %}'> Register</a> </small>
-        </div>
+            <form method="POST">
+                {%  csrf_token %}
+                <fieldset>
+                    {{ form|crispy }}
+                </fieldset>
+                <div>
+                    <button class="btn blue-gradient btn-rounded" type="submit"> Log In</button>
+                </div>
+            </form>
+        </div><br>
+        <center>
+            <small class="text-muted">Don't have an account? <a href='{% url 'users-register' %}'> Register</a> </small>
+        </center>
     </div>
 
 {% endblock content %}

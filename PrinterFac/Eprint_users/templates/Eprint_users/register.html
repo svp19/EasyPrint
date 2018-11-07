@@ -4,14 +4,15 @@
 {#    <div style="width: 30%; transform: translateX(115%);#}
 {#    margin: 10px;" class="register-form">#}
     <div class="container-fluid col-md-5 content-below-nav">
+    <center><h2>Register</h2></center>
         <div class="card p-3 ">
         <form method="post">
             {% csrf_token %}
             {{ user_form|crispy }}
             {{ profile_form|crispy }}
-            <button class="btn btn-primary" type="submit">Sign Up</button>
+            <center><button class="btn btn-primary" type="submit">Sign Up</button> </center>
         </form>
         </div>
-    <small class="text-muted">Already have an account? <a href="#">Log In</a> </small>
+    <center> <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Log In</a> </small> </center>
     </div>
 {% endblock content %}

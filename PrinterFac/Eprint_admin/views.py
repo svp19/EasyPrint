@@ -2,8 +2,10 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from Eprint_users.models import PrintDocs
 from . forms import UpdateForm
+from django.contrib.admin.views.decorators import user_passes_test
 
 
+@user_passes_test(lambda u: u.is_staff, login_url='login')
 def tasks(request):
     docs = PrintDocs.objects.all()
     forms = []

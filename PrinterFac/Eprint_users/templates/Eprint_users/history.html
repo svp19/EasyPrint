@@ -1,56 +1,63 @@
 {% extends "ground/base.html" %}
 {% block content %}
+    <div class="content-below-nav">
     <center>
-        <h1>History</h1><br><br>
-        <table class="bill-table" border="1|0">
-            <tr>
-                <th>Document Name</th>
-                <th>Date Added</th>
-                <th>Price</th>
-                <th>Status</th>
-            </tr>
-            {% for task in tasks %}
+        {% if tasks%}
+            <h2>History</h2>
+            <table class="bill-table" border="1|0">
                 <tr>
-                    <td>{{ task.file_name }}</td>
-                    <td>{{ task.date_uploaded }}</td>
-                    <td>{{ task.price }}</td>
-                    <td>{% if task.completed %}
-                            <span class="badge badge-success align-middle">
-                                <i class="fas fa-print"></i>
-                                PRINTED
-                            </span>
-                        {% else %}
-                            <span class="badge badge-danger align-middle">
-                                <i class="fas fa-print"></i>
-                                PENDING
-                            </span>
-                        {% endif %}
-                        {% if task.paid %}
-                            <span class="badge badge-success align-middle">
-                                <i class="fas fa-rupee-sign"></i>
-                                PAID
-                            </span>
-                        {% else %}
-                            <span class="badge badge-danger align-middle">
-                                <i class="fas fa-rupee-sign"></i>
-                                PENDING
-                            </span>
-                        {% endif %}
-                        {% if task.collected %}
-                            <span class="badge badge-success align-middle">
-                                <i class="fas fa-rupee-sign"></i>
-                                Collected
-                            </span>
-                        {% else %}
-                            <span class="badge badge-danger align-middle">
-                                <i class="fas fa-rupee-sign"></i>
-                                Not Collected
-                            </span>
-                        {% endif %}
-
-                    </td>
+                    <th>Document Name</th>
+                    <th>Date Added</th>
+                    <th>Price</th>
+                    <th>Status</th>
                 </tr>
-            {% endfor %}
-        </table>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.file_name }}</td>
+                        <td>{{ task.date_uploaded }}</td>
+                        <td>{{ task.price }}</td>
+                        <td>{% if task.completed %}
+                                <span class="badge badge-success align-middle">
+                                    <i class="fas fa-print"></i>
+                                    PRINTED
+                                </span>
+                            {% else %}
+                                <span class="badge badge-danger align-middle">
+                                    <i class="fas fa-print"></i>
+                                    PENDING
+                                </span>
+                            {% endif %}
+                            {% if task.paid %}
+                                <span class="badge badge-success align-middle">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    PAID
+                                </span>
+                            {% else %}
+                                <span class="badge badge-danger align-middle">
+                                    <i class="fas fa-rupee-sign"></i>
+                                    PENDING
+                                </span>
+                            {% endif %}
+                            {% if task.collected %}
+                                <span class="badge badge-success align-middle">
+                                    <i class="fas fa-check"></i>
+                                    Collected
+                                </span>
+                            {% else %}
+                                <span class="badge badge-danger align-middle">
+                                    <i class="fas fa-times"></i>
+                                    Not Collected
+                                </span>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            There are no files given by you. Get started <a href="{% url 'users-upload' %}">here</a>!
+        {% endif %}
+
     </center>
+    </div>
 {% endblock content %}
