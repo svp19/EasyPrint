@@ -62,6 +62,7 @@ class PrintDocs(models.Model):
     completed = models.BooleanField(default=False)
     paid = models.BooleanField(default=False)
     collected = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.document.name

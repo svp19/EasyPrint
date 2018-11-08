@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from . forms import PrintForm, UserRegisterForm, ProfileForm
-from . models import Profile
+from .forms import PrintForm, UserRegisterForm, ProfileForm, ConfirmForm
+from .models import Profile, PrintDocs
 from PyPDF2 import PdfFileReader
 from django.contrib.auth import login
 from django.contrib.sites.shortcuts import get_current_site
@@ -40,7 +40,7 @@ def register(request):
                 to_email = user_form.cleaned_data.get('email')
                 email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
-                return HttpResponse('Please confirm your email address to complete the registration')
+                return render(request, 'ground/check_ack.html', {'activate': True})
                 # profile_form = ProfileForm(request.POST, instance=user)
                 # profile_form.save()
                 # username = user_form.cleaned_data.get('username')
@@ -64,9 +64,9 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
         # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can log into your account.')
+        return render(request, 'ground/check_ack.html', {'valid_registration': True})
     else:
-        return HttpResponse('Activation link is invalid!')
+        return render(request, 'ground/check_ack.html', {'valid_registration': False})
 
 
 @login_required
@@ -88,6 +88,7 @@ def print_upload(request):
     rate_per_page_c = RatePerPage.objects.first().rppC
 
     if request.method == 'POST':
+
         form = PrintForm(request.POST, request.FILES, user=request.user)
         if form.is_valid():
 
@@ -100,19 +101,35 @@ def print_upload(request):
             pdf_file = request.FILES['document'].open()
             num_pages = PdfFileReader(pdf_file, strict=False).getNumPages()
             my_form.num_pages = num_pages
+            rate_per_page = rate_per_page_bw
             if request.POST.get('colour'):
                 rate_per_page = rate_per_page_c
-            elif not request.POST.get('colour'):
-                rate_per_page = rate_per_page_bw
             my_form.price = float(request.POST.get('copies')) * num_pages * rate_per_page
+
             my_form.save()
+            # on confirm
+            return redirect('users-confirm')
 
-            # Update billing information
-            user = User.objects.get(username=request.user)
-            new_amount_due = float(my_form.price) + float(user.profile.amount_due)
-            Profile.objects.filter(user=request.user).update(amount_due=new_amount_due)
-
-            return redirect('baseApp-home')
     else:
         form = PrintForm(user=request.user)
     return render(request, 'Eprint_users/upload.html', {'form': form})
+
+
+@login_required
+def confirm(request):
+
+    print_doc = request.user.printdocs_set.last()
+    form = ConfirmForm(instance=print_doc)
+    form.is_confirmed = False
+    if request.method == "POST":
+        form = ConfirmForm(request.POST, instance=print_doc)
+        if form.is_valid():
+            if request.POST.get('is_confirmed'):
+                # Update billing information
+                # PrintDoc = PrintDocs.objects.filter(pk=print_docpk).update(is_confirmed=True)
+                user = User.objects.get(username=request.user)
+                new_amount_due = float(print_doc.price) + float(user.profile.amount_due)
+                Profile.objects.filter(user=request.user).update(amount_due=new_amount_due)
+            form.save()
+            return redirect('baseApp-home')
+    return render(request, 'Eprint_users/confirm.html', {'form': form})

@@ -48,3 +48,14 @@ class PrintForm(forms.ModelForm):
     class Meta:
         model = PrintDocs
         fields = ['description', 'document', 'colour', 'copies', ]
+
+
+class ConfirmForm(forms.ModelForm):
+
+    class Meta:
+        model = PrintDocs
+        fields = ['is_confirmed']
+
+    def __init__(self, *args, **kwargs):
+        super(ConfirmForm, self).__init__(*args, **kwargs)
+        self.fields['is_confirmed'].label = 'I would like to confirm this print. '

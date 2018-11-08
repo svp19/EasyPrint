@@ -7,6 +7,7 @@ urlpatterns = [
     path('upload/', views.print_upload, name='users-upload'),
     path('register/', views.register, name='users-register'),
     path('profile/', views.bill, name='users-profile'),
+    path('confirm/', views.confirm, name='users-confirm'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         views.activate, name='activate'),
 ]

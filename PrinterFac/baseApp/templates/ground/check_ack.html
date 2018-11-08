@@ -1,0 +1,22 @@
+{% extends "ground/base.html" %}
+{% block content%}
+    <div class="container-fluid content-below-nav">
+        <center>
+            {% if activate %}
+                <h2>
+                    Please check your email for confirmation <a href="https://www.gmail.com" target="_blank">here</a>.
+                </h2>
+            {% else %}
+                {% if valid_registration %}
+                    <h2>
+                        Your account has been activated successfully!
+                    </h2>
+                {% else %}
+                    <h2>
+                        Invalid registration
+                    </h2>
+                {% endif %}
+            {% endif %}
+        </center>
+    </div>
+{% endblock content%}
