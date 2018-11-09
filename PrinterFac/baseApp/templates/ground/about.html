@@ -1,8 +1,13 @@
 {% extends "ground/base.html" %}
 {% block content %}
-    <center><h1>Hello there! This is a site developed by <a href="mailto:170010025@iitdh.ac.in">170010025</a> and
-        <a href="mailto:170010039@iitdh.ac.in">170010039</a> as our SSL course project. Hope it
-        made your day easier!</h1>
-        <small>Any bugs/suggestions? Try to implement them as a part of your course project xD!</small>
-    </center>
+    <script>
+        var x = document.getElementsByTagName("BODY")[0];
+        x.classList.add("deep-blue-gradient");
+    </script>
+    <div style="transform: translateY(30vh)" class="container-fluid col-md-12 content-below-nav">
+    <center><h4>Hello there! This is a site developed by <a href="mailto:170010025@iitdh.ac.in">170010025</a> and
+        <a href="mailto:170010039@iitdh.ac.in">170010039</a> as a part of our SSL course project. Hope it
+        made your day easier!</h4>
+        <small class="text-muted">Any bugs/suggestions? <a target="_blank" href="https://github.com/svp19/EPrint">Here</a> you go.</small></center>
+    </div>
 {% endblock content %}

@@ -1,5 +1,9 @@
 {% extends "ground/base.html" %}
 {% block content%}
+    <script>
+        var x = document.getElementsByTagName("BODY")[0];
+        x.classList.add("deep-blue-gradient");
+    </script>
     <div class="container-fluid content-below-nav">
         <center>
             {% if activate %}

@@ -44,7 +44,8 @@
       </button>
 
       <!-- Navbar links -->
-      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      {% if user.is_authenticated %}
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto d-none d-md-block">
           <!-- Dropdown [hidden on small screens] -->
             <li class="nav-item dropdown">
@@ -67,6 +68,8 @@
             </li>
         </ul>
       </div>
+      {% endif %}
+      <!--Navbar Links-->
     </nav>
     {% if messages %}
         <div class="content-below-nav">

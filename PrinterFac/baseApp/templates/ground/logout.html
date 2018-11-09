@@ -1,6 +1,12 @@
 {% extends "ground/base.html" %}
 {% block content %}
-    <div class="content-below-nav">
-        <center><h1>Successfully logged out!</h1></center>
+    <script>
+        var x = document.getElementsByTagName("BODY")[0];
+        x.classList.add("deep-blue-gradient");
+    </script>
+    <div class="container-fluid col-md-8 content-below-nav">
+        <div style="transform: translateY(30vh)" class="align-center mt-5 p-3 ">
+            <center><h4>You've been successfully logged out. Click <a href="{% url 'baseApp-home' %}">here</a> to login again.</h4></center>
+        </div>
     </div>
 {% endblock content %}
