@@ -2,19 +2,23 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="container-fluid col-md-4 content-below-nav">
-    <center><h2 class="py-3">Confirm Portal</h2></center>
+        <center><h2 class="py-3">Confirmation</h2></center>
         <div class="card p-3 ">
-        <div class="mt-2">
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form|crispy }}
+            <div class="mt-2">
                 <center>
-                    <button class="btn blue-gradient" type="submit">Submit</button>
+                    <h4>Printing this document will cost you <br><span class="text-success">₹ {{ price }}</span></h4>
                 </center>
-            </form>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <center>{{ form|crispy }}</center>
+                    <center><h6 style="color: red;">NOTE: Ensure that the paid option checked when you pay after getting the printout</h6></center>
+                    <center>
+                        <button class="btn blue-gradient" type="submit">Submit</button>
+                    </center>
+                </form>
+            </div>
         </div>
-        </div>
-{#    <p><a href="{% url 'baseApp-home' %}">Return to home</a></p>#}
+        {#    <p><a href="{% url 'baseApp-home' %}">Return to home</a></p>#}
     </div>
 
 

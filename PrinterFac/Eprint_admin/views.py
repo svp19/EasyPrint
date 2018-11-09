@@ -1,3 +1,5 @@
+import os
+
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from Eprint_admin.models import RatePerPage
@@ -8,7 +10,7 @@ from django.contrib.admin.views.decorators import user_passes_test
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')
 def tasks(request):
-    docs = PrintDocs.objects.all()
+    docs = PrintDocs.objects.filter(is_confirmed=True)
     forms = []
     edits = {x: False for x in range(len(docs))}
 
@@ -55,7 +57,8 @@ def tasks(request):
 
         ids = [i for i in range(len(forms))]
         context = zip(docs, forms, ids)
-        return render(request, 'Eprint_admin/tasks.html', {'context': context})
+        curr_dir = os.getcwd().replace('\\', '/')
+        return render(request, 'Eprint_admin/tasks.html', {'context': context, 'curr_dir': curr_dir})
 
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')

@@ -2,46 +2,49 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-below-nav">
-    <center>
-
-        <h1>Tasks</h1><br><br>
-
-        <form method="post" enctype="multipart/form-data">
-
-            {% csrf_token %}
-            <div class="table-responsive">
-            <table class="print-list bill-table table">
-                <tr>
-                    <th>Document</th>
-                    <th>User</th>
-                    <th>Status</th>
-                </tr>
-                {% for mytask in context %}
-                    <tr>
-                        <td class="deep-blue-gradient"><strong>{{ mytask.0.file_name }}</strong><br>
-                            <span class="small text-muted">{{ mytask.0.date_uploaded }}</span>
-                        </td>
-                        <td>{{ mytask.0.task_by }}</td>
-                        <td>
-                        {% for element in mytask.1 %}
-                            {% if forloop.counter != 1 %}
-                                {{ element.label }}: &nbsp; <input type="checkbox" name="{{ element.name }}{{ mytask.2 }}" id="id_completed" {% if element.value == True %}checked{% endif %}>
-                                <br>
-                            {% endif %}
+        <center>
+            <h1>Tasks</h1><br><br>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="table-responsive">
+                    <table class="print-list bill-table table-borderless">
+                        <tr>
+                            <th>Document</th>
+                            <th>User</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        {% for mytask in context %}
+                            <tr>
+                                <td class="deep-blue-gradient"><strong>{{ mytask.0.file_name }}</strong><br>
+                                    <span class="small text-muted">{{ mytask.0.date_uploaded }}</span>
+                                </td>
+                                <td>{{ mytask.0.task_by }}</td>
+                                <td>
+                                    {% for element in mytask.1 %}
+                                        {% if forloop.counter != 1 %}
+                                            {{ element.label }}: &nbsp;
+                                            <input type="checkbox" name="{{ element.name }}{{ mytask.2 }}"
+                                                   id="id_completed" {% if element.value == True %}checked{% endif %}>
+                                            <br>
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                                <td>
+                                    <button onclick="" type="button" class="small-btn btn blue-gradient">Print</button>
+                                </td>
+                            </tr>
                         {% endfor %}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-            </div>
+                    </table>
+                </div>
 
-            <br>
+                <br>
 
-            <button class="btn deep-blue-gradient">Update</button>
+                <button class="btn deep-blue-gradient">Update</button>
 
-        </form>
+            </form>
 
 
-    </center>
+        </center>
     </div>
 {% endblock content %}

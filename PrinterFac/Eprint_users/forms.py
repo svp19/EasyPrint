@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from pdfrw import PdfReader
+
 from . models import PrintDocs
 from .models import Profile
 
@@ -37,12 +39,18 @@ class PrintForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop('user', None)
         super(PrintForm, self).__init__(*args, **kwargs)
+        self.fields['description'].help_text = \
+            'Enter the pages you want to select, for eg. "1 2-6 11-14 20" where (2-6 is inclusive of 2 and 6\
+            ). Leave as \'All\' to print everything.'
+        self.fields['description'].label = 'Pages'
+        self.fields['description'].initial = 'All'
 
     def clean(self):
         doc_passed = self.cleaned_data.get('document')
         doc_name = doc_passed.name
         if not doc_name.endswith('.pdf'):
-            raise forms.ValidationError("Please upload only PDF Files")
+            # raise forms.ValidationError("Please upload only PDF Files")
+            self.add_error('description', "Please upload only PDF Files")
         return self.cleaned_data
 
     class Meta:

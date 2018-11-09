@@ -9,10 +9,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <center>
-                    <button class="btn blue-gradient" type="submit">Upload</button>
-                    {% if ask_user %} <button name="confirmed" value="True" class="btn blue-gradient" type="submit">Confirm (₹{{ price }})</button>
-                    {% else %} <button name="confirmed" value="False" style="display: none" type="submit"></button>
-                    {% endif %}
+                    <button class="btn blue-gradient" type="submit">Next</button>
                 </center>
             </form>
         </div>

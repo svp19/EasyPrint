@@ -1,9 +1,10 @@
-from django.http import HttpResponse
+from pdfrw import PdfReader, PdfWriter
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import PrintForm, UserRegisterForm, ProfileForm, ConfirmForm
-from .models import Profile, PrintDocs
+from .models import Profile
 from PyPDF2 import PdfFileReader
 from django.contrib.auth import login
 from django.contrib.sites.shortcuts import get_current_site
@@ -14,7 +15,37 @@ from . tokens import account_activation_token
 from django.core.mail import EmailMessage
 from Eprint_admin.models import RatePerPage
 
-'''pip install PyPDF2'''
+'''
+pip install PyPDF2
+pip install pdfrw
+'''
+
+
+def subset_pdf(inp_file, ranges):  # Create PDF with subset pages
+
+    ranges = ranges.split(' ')
+
+    for x in ranges:  # If ranges is something like a word or negative
+        for y in x.split('-'):
+            try:
+                int(y)
+            except ValueError:
+                return -1
+
+    ranges = ([int(y) for y in x.split('-')] for x in ranges)
+    pages = PdfReader(inp_file).pages
+    out_data = PdfWriter(inp_file)
+    num_pages = 0
+    try:
+        for one_range in ranges:
+            one_range = (one_range + one_range[-1:])[:2]
+            for page_num in range(one_range[0], one_range[1] + 1):
+                out_data.addpage(pages[page_num - 1])
+                num_pages += 1
+    except IndexError:
+        return -1
+    out_data.write()
+    return num_pages
 
 
 def register(request):
@@ -71,13 +102,15 @@ def activate(request, uidb64, token):
 
 @login_required
 def history(request):
-    return render(request, 'Eprint_users/history.html', {'tasks': request.user.printdocs_set.all()})
+    return render(request, 'Eprint_users/history.html', {'tasks': request.user.printdocs_set.filter(is_confirmed=True)})
 
 
 @login_required
 def bill(request):
-    return render(request, 'Eprint_users/bill.html', {'not_paid_tasks': request.user.printdocs_set.filter(paid=False),
-                                                      'total_due': request.user.profile.amount_due})
+    unpaid = request.user.printdocs_set.filter(paid=False, is_confirmed=True)
+    return render(request, 'Eprint_users/bill.html',
+                  {'not_paid_tasks': unpaid,
+                   'total_due': sum([i.price for i in unpaid])})
 
 
 @login_required
@@ -92,14 +125,26 @@ def print_upload(request):
         form = PrintForm(request.POST, request.FILES, user=request.user)
         if form.is_valid():
 
+            # Getting number of pages
+            if request.POST.get('description').lower() != 'all':
+                num_pages = subset_pdf(request.FILES['document'], request.POST.get('description'))
+            else:
+                pdf_file = request.FILES['document'].open()
+                num_pages = PdfFileReader(pdf_file, strict=False).getNumPages()
+
+            # Raising error
+            form = PrintForm(request.POST, request.FILES, user=request.user)
+            if num_pages == -1:
+                form.add_error('description', "Invalid page specification")
+                return render(request, 'Eprint_users/upload.html', {'form': form})
+
             # Upload to database
             my_form = form.save(False)
             my_form.task_by = User.objects.get(username=request.user)
             my_form.file_name = request.FILES['document'].name
 
             # Count Number Of Pages and calc Price
-            pdf_file = request.FILES['document'].open()
-            num_pages = PdfFileReader(pdf_file, strict=False).getNumPages()
+
             my_form.num_pages = num_pages
             rate_per_page = rate_per_page_bw
             if request.POST.get('colour'):
@@ -107,6 +152,7 @@ def print_upload(request):
             my_form.price = float(request.POST.get('copies')) * num_pages * rate_per_page
 
             my_form.save()
+
             # on confirm
             return redirect('users-confirm')
 
@@ -118,18 +164,18 @@ def print_upload(request):
 @login_required
 def confirm(request):
 
-    print_doc = request.user.printdocs_set.last()
+    print_doc = request.user.printdocs_set.last()  # Gets last uploaded document of user
     form = ConfirmForm(instance=print_doc)
     form.is_confirmed = False
     if request.method == "POST":
         form = ConfirmForm(request.POST, instance=print_doc)
         if form.is_valid():
             if request.POST.get('is_confirmed'):
+
                 # Update billing information
-                # PrintDoc = PrintDocs.objects.filter(pk=print_docpk).update(is_confirmed=True)
                 user = User.objects.get(username=request.user)
                 new_amount_due = float(print_doc.price) + float(user.profile.amount_due)
                 Profile.objects.filter(user=request.user).update(amount_due=new_amount_due)
             form.save()
             return redirect('baseApp-home')
-    return render(request, 'Eprint_users/confirm.html', {'form': form})
+    return render(request, 'Eprint_users/confirm.html', {'form': form, 'price': print_doc.price})
