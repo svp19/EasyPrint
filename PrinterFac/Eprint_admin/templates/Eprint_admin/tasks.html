@@ -31,7 +31,10 @@
                                     {% endfor %}
                                 </td>
                                 <td>
-                                    <button onclick="" type="button" class="small-btn btn blue-gradient">Print</button>
+                                    <a target="_blank"
+                                       href="http://localhost:8080/media/documents/{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
+                                        <button onclick="" type="button" class="small-btn btn blue-gradient">Print
+                                        </button>
                                 </td>
                             </tr>
                         {% endfor %}

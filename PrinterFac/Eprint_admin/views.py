@@ -56,7 +56,8 @@ def tasks(request):
             forms.append(temp_form)
 
         ids = [i for i in range(len(forms))]
-        context = zip(docs, forms, ids)
+        ground_file_names = [os.path.basename(i.document.name) for i in docs]
+        context = zip(docs, forms, ids, ground_file_names)
         curr_dir = os.getcwd().replace('\\', '/')
         return render(request, 'Eprint_admin/tasks.html', {'context': context, 'curr_dir': curr_dir})
 

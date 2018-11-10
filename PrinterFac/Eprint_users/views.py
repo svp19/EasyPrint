@@ -1,3 +1,4 @@
+import requests
 from pdfrw import PdfReader, PdfWriter
 
 from django.shortcuts import render, redirect
@@ -11,7 +12,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
-from . tokens import account_activation_token
+from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from Eprint_admin.models import RatePerPage
 
@@ -19,6 +20,9 @@ from Eprint_admin.models import RatePerPage
 pip install PyPDF2
 pip install pdfrw
 '''
+
+# Media Upload Server
+media_upload_url = 'http://127.0.0.1:8080/EP_upload_post.php'
 
 
 def subset_pdf(inp_file, ranges):  # Create PDF with subset pages
@@ -115,7 +119,6 @@ def bill(request):
 
 @login_required
 def print_upload(request):
-
     # Define const Price here
     rate_per_page_bw = RatePerPage.objects.first().rppBW
     rate_per_page_c = RatePerPage.objects.first().rppC
@@ -142,6 +145,7 @@ def print_upload(request):
             my_form = form.save(False)
             my_form.task_by = User.objects.get(username=request.user)
             my_form.file_name = request.FILES['document'].name
+            ground_file_name = my_form.document.name.split('/')[-1]
 
             # Count Number Of Pages and calc Price
 
@@ -163,7 +167,6 @@ def print_upload(request):
 
 @login_required
 def confirm(request):
-
     print_doc = request.user.printdocs_set.last()  # Gets last uploaded document of user
     form = ConfirmForm(instance=print_doc)
     form.is_confirmed = False
@@ -171,6 +174,15 @@ def confirm(request):
         form = ConfirmForm(request.POST, instance=print_doc)
         if form.is_valid():
             if request.POST.get('is_confirmed'):
+
+                # Uploading to another Server
+                files = open(print_doc.document.url, 'rb')
+                r = requests.post(media_upload_url,
+                                  files={'fileToUpload': files}, data={'safe_url': request.user.profile.hash_url.hex})
+                print(r.text)
+                if r.status_code != 200:
+                    form.add_error('description', "File may exceed")
+                    return render(request, 'Eprint_users/upload.html', {'form': form})
 
                 # Update billing information
                 user = User.objects.get(username=request.user)

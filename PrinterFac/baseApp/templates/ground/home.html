@@ -1,44 +1,44 @@
 {% extends "ground/base.html" %}
 {% block content %}
 
-<div class="container-fluid dual-wrapper">
-    <div class="row">
-        {% if user.is_staff %}
-            <!--Left Container-->
-            <div class="col-md-6">
-                <a href="{% url 'admin-tasks' %}">
-                    <div class="first-cont">
-                        <span class="home-heading">View Tasks</span>
-                    </div>
-                </a>
-            </div>
-            <!--Right Container-->
-            <div class="col-md-6">
-                <a href="{% url 'admin-update' %}">
-                    <div class="second-cont">
-                        <span class="home-heading">Update Prices</span>
-                    </div>
-                </a>
-            </div>
-        {% else %}
-            <!--Left Container-->
-            <div class="col-md-6">
-                <a href="{% url 'users-upload' %}">
-                    <div class="first-cont">
-                        <span class="home-heading">Print a new document</span>
-                    </div>
-                </a>
-            </div>
-            <!--Right Container-->
-            <div class="col-md-6">
-                <a href="{% url 'users-history' %}">
-                    <div class="second-cont">
-                        <span class="home-heading">View printing history</span>
-                    </div>
-                </a>
-            </div>
-        {% endif %}
+    <div class="container-fluid dual-wrapper">
+        <div class="row">
+            {% if user.is_staff %}
+                <!--Left Container-->
+                <div class="col-md-6">
+                    <a href="{% url 'admin-tasks' %}">
+                        <div class="first-cont">
+                            <span class="home-heading">View Tasks</span>
+                        </div>
+                    </a>
+                </div>
+                <!--Right Container-->
+                <div class="col-md-6">
+                    <a href="{% url 'admin-update' %}">
+                        <div class="second-cont">
+                            <span class="home-heading">Update Prices</span>
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                <!--Left Container-->
+                <div class="col-md-6">
+                    <a href="{% url 'users-upload' %}">
+                        <div class="first-cont">
+                            <span class="home-heading">Print a new document</span>
+                        </div>
+                    </a>
+                </div>
+                <!--Right Container-->
+                <div class="col-md-6">
+                    <a href="{% url 'users-history' %}">
+                        <div class="second-cont">
+                            <span class="home-heading">View printing history</span>
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
     </div>
-</div>
 
 {% endblock content %}

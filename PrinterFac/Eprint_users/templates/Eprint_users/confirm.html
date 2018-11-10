@@ -1,6 +1,20 @@
 {% extends "ground/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+    <script>
+        function toggleButton() {
+            let vic = document.getElementById("vic_but");
+            if(document.getElementById("id_is_confirmed").checked === true) {
+                vic.classList.remove("amy-crisp-gradient");
+                vic.classList.add("blue-gradient");
+                vic.innerHTML = "Confirm";
+            } else {
+                vic.classList.remove("blue-gradient");
+                vic.classList.add("amy-crisp-gradient");
+                vic.innerHTML = "Cancel";
+            }
+        }
+    </script>
     <div class="container-fluid col-md-4 content-below-nav">
         <center><h2 class="py-3">Confirmation</h2></center>
         <div class="card p-3 ">
@@ -8,12 +22,13 @@
                 <center>
                     <h4>Printing this document will cost you <br><span class="text-success">₹ {{ price }}</span></h4>
                 </center>
-                <form method="post" enctype="multipart/form-data">
+                <form onchange="toggleButton();" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <center>{{ form|crispy }}</center>
-                    <center><h6 style="color: red;">NOTE: Ensure that the paid option checked when you pay after getting the printout</h6></center>
+                    <center><h6 style="color: red;">NOTE: Ensure that the paid option checked when you pay after getting
+                        the printout</h6></center>
                     <center>
-                        <button class="btn blue-gradient" type="submit">Submit</button>
+                        <button id="vic_but" class="btn amy-crisp-gradient" type="submit">Cancel</button>
                     </center>
                 </form>
             </div>
