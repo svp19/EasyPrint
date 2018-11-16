@@ -29,6 +29,8 @@ body {
 
 .content-below-nav{
     margin-top: 90px ;
+    min-height: 80vh;
+    margin-bottom: 10px;
 }
 .dual-wrapper {
     width: 100%;
@@ -81,6 +83,19 @@ body {
     transition: ease-in 300ms;
 }
 
+@media only screen and (max-width: 480px) {
+    .home-heading {
+        font-size: 28px;
+    }
+    .first-cont:hover .home-heading {
+    font-size: 35px;
+    transition: ease-in 300ms;
+} .second-cont:hover .home-heading {
+    font-size: 35px;
+    transition: ease-in 300ms;
+}
+}
+
 /* ---------------------------------- Home page ends ------------------------------------*/
 
 .bill-table {
@@ -118,10 +133,43 @@ body {
     border-bottom-left-radius: 10px;
 }
 
-/* --------------------------------- Crispy Form Tags -----------------------------------*/
+/* --------------------------------- Crispy Form Tags ----------------------------------- */
 .asteriskField {
     color: #cc1111;
     margin: 0px 2px;
 }
 
-/* ---------------------------------- Footer ---------------------------------------*/
+/* ---------------------------------- Footer --------------------------------------- */
+.print-footer {
+    min-height: 5vh;
+    line-height: 5vh;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+.print-footer .footer-copyright {
+    color: white;
+}
+
+.dev {
+    transform: translate(0%, -200%);
+    display: none;
+}
+.dev a {
+    color: #fff;
+}
+.print-footer:hover .dev{
+    display: block;
+    animation: dev-meet 1s ease-in-out forwards;
+}
+.print-footer:hover .institute {
+    animation: institute-run 1s ease-in-out forwards;
+}
+
+@keyframes dev-meet {
+    0% {transform: translate(0%, -200%);}
+    100% {transform: translate(0%, -100%);}
+}
+@keyframes institute-run {
+    0% {transform: translate(0%, 0%);}
+    100% {transform: translate(0%, 100%);}
+}

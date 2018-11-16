@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'ground/favicon.png' %}"/>
     <!--Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans:800">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
           integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -48,32 +49,29 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar links -->
-    {% if user.is_authenticated %}
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto d-none d-md-block">
-                <!-- Dropdown [hidden on small screens] -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
-                        Menu
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="{% url 'users-profile' %}">Profile</a>
-                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                    </div>
-                </li>
-            </ul>
-            <!--Links for Small screens-->
-            <ul class="mynavbarsmall navbar-nav ml-auto d-block d-md-none">
-                <li class="nav-item">
-                    <a style="color: #fff;" href="{% url 'users-profile' %}"> Profile </a>
-                </li>
-                <li class="nav-item">
-                    <a style="color: #fff;" href="{% url 'logout' %}"> Logout </a>
-                </li>
-            </ul>
-        </div>
-    {% endif %}
+    <!-- Navbar links -->    {% if user.is_authenticated %}
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto d-none d-md-block">
+            <!-- Dropdown [hidden on small screens] -->
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
+                Menu </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{% url 'users-profile' %}">Profile</a>
+                    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <!--Links for Small screens-->
+        <ul class="mynavbarsmall navbar-nav ml-auto d-block d-md-none">
+            <li class="nav-item">
+                <a style="color: #fff;" href="{% url 'users-profile' %}"> Profile </a>
+            </li>
+            <li class="nav-item">
+                <a style="color: #fff;" href="{% url 'logout' %}"> Logout </a>
+            </li>
+        </ul>
+    </div>
+{% endif %}
     <!--Navbar Links-->
 </nav>
 {% if messages %}
@@ -87,27 +85,30 @@
         {% endfor %}
     </div>
 {% endif %}
+
 {% block content %}
 
 {% endblock %}
 
 <!-- Footer -->
-<footer class="page-footer font-small blue pt-8">
-
-    <!-- Footer Links -->
-    <div class="container-fluid text-center text-md-left">
-
-
-    </div>
-    <!-- Footer Links -->
+<footer class="print-footer font-small  mdb-color unique-color-dark bottom">
 
     <!-- Copyright -->
-    <div class="fixed-footer footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="#">EasyPrint</a>
+    <div class="footer-copyright text-center py-2 institute">
+        Indian Institute of Technology, Dharwad © 2018
+    </div>
+    <div class="footer-copyright text-center py-2 link-target dev">
+        <a href="{% url 'baseApp-about' %}">Meet the Developers!</a>
     </div>
     <!-- Copyright -->
 
 </footer>
+{#<script>#}
+{#    const foot = document.getElementsByClassName("epfooter");#}
+{#    let bod = document.getElementsByClassName("content-below-nav");#}
+{#    document.write(bod.style);#}
+{##}
+{#</script>#}
 <!-- Footer -->
 </body>
 </html>

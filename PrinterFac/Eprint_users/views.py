@@ -1,3 +1,5 @@
+import subprocess
+
 import requests
 from pdfrw import PdfReader, PdfWriter
 
@@ -168,6 +170,8 @@ def print_upload(request):
 @login_required
 def confirm(request):
     print_doc = request.user.printdocs_set.last()  # Gets last uploaded document of user
+    if print_doc is None or print_doc.is_confirmed is True:
+        return redirect('baseApp-home')
     form = ConfirmForm(instance=print_doc)
     form.is_confirmed = False
     if request.method == "POST":
@@ -188,6 +192,15 @@ def confirm(request):
                 user = User.objects.get(username=request.user)
                 new_amount_due = float(print_doc.price) + float(user.profile.amount_due)
                 Profile.objects.filter(user=request.user).update(amount_due=new_amount_due)
+
+                # Printing the job
+                cmd = "lp"
+                arg1 = "-U " + str(request.user.id)
+                arg2 = "-n " + str(print_doc.copies)
+                arg3 = "-t " + print_doc.document.name
+                arg4 = print_doc.document.name
+                proc = subprocess.run([cmd, arg1, arg2, arg3, arg4], encoding='utf-8', stdout=subprocess.PIPE)
+
             form.save()
             return redirect('baseApp-home')
     return render(request, 'Eprint_users/confirm.html', {'form': form, 'price': print_doc.price})
