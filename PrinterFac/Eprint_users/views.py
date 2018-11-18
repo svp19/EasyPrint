@@ -1,13 +1,14 @@
 import subprocess
 
 import requests
+from django.core.checks import messages
 from pdfrw import PdfReader, PdfWriter
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import PrintForm, UserRegisterForm, ProfileForm, ConfirmForm
-from .models import Profile
+from .models import Profile, PrintDocs
 from PyPDF2 import PdfFileReader
 from django.contrib.auth import login
 from django.contrib.sites.shortcuts import get_current_site
@@ -24,7 +25,7 @@ pip install pdfrw
 '''
 
 # Media Upload Server
-media_upload_url = 'http://127.0.0.1:8080/EP_upload_post.php'
+media_upload_url = 'http://127.0.0.1:80/EP_upload_post.php'
 
 
 def subset_pdf(inp_file, ranges):  # Create PDF with subset pages
@@ -108,6 +109,25 @@ def activate(request, uidb64, token):
 
 @login_required
 def history(request):
+
+    # Get user's list of print_docs
+    print_docs = PrintDocs.objects.filter(task_by_id=request.user.id)
+    all_id = []
+    if print_docs:
+        all_id = [doc.id for doc in print_docs.iterator()]
+
+    # Get printer queue
+    proc = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
+    output = proc.stdout
+
+    # String formatting to get list of completed print_docs
+    s = [line.split() for line in output.split('\n')]
+    s = s[2:]
+    pending = [int(row[3]) for row in s if len(row) >= 4 and int(row[1]) == request.user.id]
+    pending_set = set(pending)
+    completed_id = [c_id for c_id in all_id if c_id not in pending_set]
+
+    PrintDocs.objects.filter(task_by=request.user, id__in=completed_id).update(completed=True)
     return render(request, 'Eprint_users/history.html', {'tasks': request.user.printdocs_set.filter(is_confirmed=True)})
 
 
@@ -185,8 +205,8 @@ def confirm(request):
                                   files={'fileToUpload': files}, data={'safe_url': request.user.profile.hash_url.hex})
                 print(r.text)
                 if r.status_code != 200:
-                    form.add_error('description', "File may exceed")
-                    return render(request, 'Eprint_users/upload.html', {'form': form})
+                    # form.add_error('is_confirmed', "File may exceed")
+                    return redirect('users-upload')
 
                 # Update billing information
                 user = User.objects.get(username=request.user)
@@ -197,7 +217,7 @@ def confirm(request):
                 cmd = "lp"
                 arg1 = "-U " + str(request.user.id)
                 arg2 = "-n " + str(print_doc.copies)
-                arg3 = "-t " + print_doc.document.name
+                arg3 = "-t " + str(print_doc.id)
                 arg4 = print_doc.document.name
                 proc = subprocess.run([cmd, arg1, arg2, arg3, arg4], encoding='utf-8', stdout=subprocess.PIPE)
 
