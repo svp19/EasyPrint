@@ -3,7 +3,20 @@
 {% block content %}
     <div class="content-below-nav">
         <center>
+            <div class="table-responsive">
+                <table class="table-borderless">
+                    <tr>
+                        <td colspan="4"></td>
+                    </tr>
+                </table>
+            </div>
+            <br>
             <h1>Tasks</h1><br><br>
+            <form method="get" class="form active-cyan-4">
+                <input id="query" name="query" style="width: 80%;" class="form-control form-control-sm" type="text"
+                       placeholder="Search in documents or users" aria-label="Search">
+                <button class="small-btn btn tempting-azure-gradient shadow-none">Search</button>
+            </form>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="table-responsive">
@@ -32,9 +45,11 @@
                                 </td>
                                 <td>
                                     <a target="_blank"
-                                       href="http://localhost:8080/media/documents/{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
-                                        <button onclick="" type="button" class="small-btn btn blue-gradient">Print
+                                       href="{{ host }}media/documents/{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
+                                        <button onclick="" type="button"
+                                                class="small-btn btn blue-gradient shadow-none">View
                                         </button>
+                                    </a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -43,11 +58,16 @@
 
                 <br>
 
-                <button class="btn deep-blue-gradient">Update</button>
+                <button class="btn aqua-gradient">Update</button>
 
             </form>
 
 
         </center>
     </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+        document.getElementById("query").value = query;
+    </script>
 {% endblock content %}

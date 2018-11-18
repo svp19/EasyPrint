@@ -1,7 +1,7 @@
 import subprocess
 
 import requests
-from django.core.checks import messages
+from django.db.models import Q
 from pdfrw import PdfReader, PdfWriter
 
 from django.shortcuts import render, redirect
@@ -18,6 +18,7 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from Eprint_admin.models import RatePerPage
+from django.conf import settings
 
 '''
 pip install PyPDF2
@@ -25,7 +26,7 @@ pip install pdfrw
 '''
 
 # Media Upload Server
-media_upload_url = 'http://127.0.0.1:80/EP_upload_post.php'
+media_upload_url = settings.EASY_PRINT_MEDIA_UPLOAD_URL
 
 
 def subset_pdf(inp_file, ranges):  # Create PDF with subset pages
@@ -109,6 +110,9 @@ def activate(request, uidb64, token):
 
 @login_required
 def history(request):
+    query = ''
+    if request.GET.get('query'):
+        query = request.GET.get('query')
 
     # Get user's list of print_docs
     print_docs = PrintDocs.objects.filter(task_by_id=request.user.id)
@@ -128,7 +132,9 @@ def history(request):
     completed_id = [c_id for c_id in all_id if c_id not in pending_set]
 
     PrintDocs.objects.filter(task_by=request.user, id__in=completed_id).update(completed=True)
-    return render(request, 'Eprint_users/history.html', {'tasks': request.user.printdocs_set.filter(is_confirmed=True)})
+    return render(request, 'Eprint_users/history.html',
+                  {'tasks': PrintDocs.objects.filter(Q(file_name__icontains=query), is_confirmed=True,
+                                             task_by=request.user).order_by('-date_uploaded')})
 
 
 @login_required
@@ -203,7 +209,7 @@ def confirm(request):
                 files = open(print_doc.document.url, 'rb')
                 r = requests.post(media_upload_url,
                                   files={'fileToUpload': files}, data={'safe_url': request.user.profile.hash_url.hex})
-                print(r.text)
+
                 if r.status_code != 200:
                     # form.add_error('is_confirmed', "File may exceed")
                     return redirect('users-upload')

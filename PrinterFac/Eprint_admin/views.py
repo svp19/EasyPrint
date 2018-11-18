@@ -1,16 +1,25 @@
 import os
 
+from django.conf import settings
 from django.contrib import messages
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from Eprint_admin.models import RatePerPage
 from Eprint_users.models import PrintDocs, Profile
-from . forms import UpdateForm, ChangeRate
+from .forms import UpdateForm, ChangeRate
 from django.contrib.admin.views.decorators import user_passes_test
 
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')
 def tasks(request):
-    docs = PrintDocs.objects.filter(is_confirmed=True)
+    # If query exists in get variables
+    if request.GET.get('query'):
+        query = request.GET.get('query')
+        docs = PrintDocs.objects.filter(Q(file_name__icontains=query) | Q(task_by__username__icontains=query),
+                                        is_confirmed=True)
+        # Q objects are a way to OR queries together
+    else:
+        docs = PrintDocs.objects.filter(is_confirmed=True)
     forms = []
     edits = {x: False for x in range(len(docs))}
 
@@ -27,10 +36,10 @@ def tasks(request):
                 if temp_doc.completed is False:
                     temp_doc.completed = True
                     edits[i] = True
-            # if request.POST.get('paid' + str(i)) is None:  # Not Possible
-            #     if temp_doc.paid is True:
-            #         temp_doc.paid = False
-            #         edits[i] = True
+            if request.POST.get('paid' + str(i)) is None:  # Not Possible
+                if temp_doc.paid is True:
+                    temp_doc.paid = False
+                    edits[i] = True
             if request.POST.get('paid' + str(i)) == 'on':
                 if temp_doc.paid is False:
                     temp_doc.paid = True
@@ -59,7 +68,8 @@ def tasks(request):
         ground_file_names = [os.path.basename(i.document.name) for i in docs]
         context = zip(docs, forms, ids, ground_file_names)
         curr_dir = os.getcwd().replace('\\', '/')
-        return render(request, 'Eprint_admin/tasks.html', {'context': context, 'curr_dir': curr_dir})
+        return render(request, 'Eprint_admin/tasks.html',
+                      {'context': context, 'curr_dir': curr_dir, 'host': settings.EASY_PRINT_MEDIA_HOST})
 
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')
