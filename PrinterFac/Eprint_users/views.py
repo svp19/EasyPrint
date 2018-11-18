@@ -1,7 +1,6 @@
 import subprocess
 
 import requests
-from django.db.models import Q
 from pdfrw import PdfReader, PdfWriter
 
 from django.shortcuts import render, redirect
@@ -110,31 +109,24 @@ def activate(request, uidb64, token):
 
 @login_required
 def history(request):
+    # Get printer queue
+    run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
+    output = run_queue.stdout
+
+    # Update the objects which aren't completed and not in the print queue
+    s = [line.split() for line in output.split('\n')]
+    s = s[2:]
+    pending = [int(row[3]) for row in s if len(row) >= 4 and int(row[1]) == request.user.id]
+    PrintDocs.objects.filter(task_by=request.user, completed=False).exclude(id__in=pending).update(completed=True)
+
+    # Checking for search query
     query = ''
     if request.GET.get('query'):
         query = request.GET.get('query')
 
-    # Get user's list of print_docs
-    print_docs = PrintDocs.objects.filter(task_by_id=request.user.id)
-    all_id = []
-    if print_docs:
-        all_id = [doc.id for doc in print_docs.iterator()]
-
-    # Get printer queue
-    proc = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
-    output = proc.stdout
-
-    # String formatting to get list of completed print_docs
-    s = [line.split() for line in output.split('\n')]
-    s = s[2:]
-    pending = [int(row[3]) for row in s if len(row) >= 4 and int(row[1]) == request.user.id]
-    pending_set = set(pending)
-    completed_id = [c_id for c_id in all_id if c_id not in pending_set]
-
-    PrintDocs.objects.filter(task_by=request.user, id__in=completed_id).update(completed=True)
     return render(request, 'Eprint_users/history.html',
-                  {'tasks': PrintDocs.objects.filter(Q(file_name__icontains=query), is_confirmed=True,
-                                             task_by=request.user).order_by('-date_uploaded')})
+                  {'tasks': PrintDocs.objects.filter(file_name__icontains=query, is_confirmed=True,
+                                                     task_by=request.user).order_by('-date_uploaded')})
 
 
 @login_required
@@ -173,7 +165,7 @@ def print_upload(request):
             my_form = form.save(False)
             my_form.task_by = User.objects.get(username=request.user)
             my_form.file_name = request.FILES['document'].name
-            ground_file_name = my_form.document.name.split('/')[-1]
+            # ground_file_name = my_form.document.name.split('/')[-1]
 
             # Count Number Of Pages and calc Price
 
@@ -207,10 +199,11 @@ def confirm(request):
 
                 # Uploading to another Server
                 files = open(print_doc.document.url, 'rb')
-                r = requests.post(media_upload_url,
-                                  files={'fileToUpload': files}, data={'safe_url': request.user.profile.hash_url.hex})
+                request_sender = requests.post(media_upload_url,
+                                               files={'fileToUpload': files},
+                                               data={'safe_url': request.user.profile.hash_url.hex})
 
-                if r.status_code != 200:
+                if request_sender.status_code != 200:
                     # form.add_error('is_confirmed', "File may exceed")
                     return redirect('users-upload')
 
@@ -225,7 +218,7 @@ def confirm(request):
                 arg2 = "-n " + str(print_doc.copies)
                 arg3 = "-t " + str(print_doc.id)
                 arg4 = print_doc.document.name
-                proc = subprocess.run([cmd, arg1, arg2, arg3, arg4], encoding='utf-8', stdout=subprocess.PIPE)
+                subprocess.run([cmd, arg1, arg2, arg3, arg4], encoding='utf-8', stdout=subprocess.PIPE)
 
             form.save()
             return redirect('baseApp-home')

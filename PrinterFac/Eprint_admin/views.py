@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 from django.conf import settings
 from django.contrib import messages
@@ -12,6 +13,16 @@ from django.contrib.admin.views.decorators import user_passes_test
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')
 def tasks(request):
+    # Updating jobs
+    run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
+    output = run_queue.stdout
+
+    s = [line.split() for line in output.split('\n')]
+    s = s[2:]
+    pending = [int(row[3]) for row in s if len(row) >= 4]
+    printed_docs = PrintDocs.objects.filter(completed=False).exclude(id__in=pending)
+    printed_docs.update(completed=True)
+
     # If query exists in get variables
     if request.GET.get('query'):
         query = request.GET.get('query')
@@ -20,6 +31,7 @@ def tasks(request):
         # Q objects are a way to OR queries together
     else:
         docs = PrintDocs.objects.filter(is_confirmed=True)
+
     forms = []
     edits = {x: False for x in range(len(docs))}
 
@@ -40,7 +52,7 @@ def tasks(request):
                 if temp_doc.paid is True:
                     temp_doc.paid = False
                     edits[i] = True
-            if request.POST.get('paid' + str(i)) == 'on':
+            elif request.POST.get('paid' + str(i)) == 'on':
                 if temp_doc.paid is False:
                     temp_doc.paid = True
                     edits[i] = True

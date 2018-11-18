@@ -2,17 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/PrinterFac.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PrinterFac.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eprint_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_admin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/history.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eprint_users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrinterFac/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrinterFac/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/static/ground/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/static/ground/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/1312.4400v3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/2018/10/15/C2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Assignment2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Assignment_2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Basketball_Jersey_Template_for_Inter_IIT_2018.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Basketball_Jersey_Template_for_Inter_IIT_2018_9kiELsY.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Basketball_Jersey_Template_for_Inter_IIT_2018_DOQ8Nus.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Basketball_Jersey_Template_for_Inter_IIT_2018_OvXwt8q.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Basketball_Jersey_Template_for_Inter_IIT_2018_Z0BvvjS.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Basketball_Jersey_Template_for_Inter_IIT_2018_tQMLFwY.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/C2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/C2_6sQSqrm.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/C2_N9TGMXz.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/CS_211_Assignment_10.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/CS_211_Assignment_9.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/EPtest.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/EPtest_3motmvM.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/EPtest_bZvUY2h.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/EPtest_ijFewli.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/NCERT-Class-11-Economics.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/Proj.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_3knabCh.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_6mgXmZQ.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_IzQzOmP.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_Kg8KEJY.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_Y61jXPZ.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_fbW2eFX.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet1_CS_25_uySgUNz.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet2_CS_25.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet2_CS_25_R85gWE9.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet2_CS_25_dkuDfPF.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/T11_Sheet2_CS_25_ea5PGtX.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/WhoIsIronMan.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex2_0QXdhWk.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex2_dwseKvg.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex2_y4v8sQd.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex3.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex3_VDupSzb.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/ex3_ltoVGuY.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/final.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/lab-10-latexadvanced-stmt.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/lab-10-latexadvanced-stmt_KnNarQ6.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/lab-4-stmt.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/latextut.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/latextut_AS0RP1N.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/latextut_xiAX113.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/pdf_download.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/documents/pdf_download_Vdx3VLD.pdf" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -186,38 +228,39 @@
     <session id="-2120969848">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="1" />
           <entry key="html" value="9" />
-          <entry key="py" value="9" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
           <entry key="HTML" value="9" />
-          <entry key="Python" value="9" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="114" />
           <entry key="html" value="744" />
-          <entry key="py" value="645" />
+          <entry key="py" value="1071" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="114" />
           <entry key="HTML" value="744" />
-          <entry key="Python" value="645" />
+          <entry key="Python" value="1071" />
         </counts>
       </usages-collector>
     </session>
@@ -227,7 +270,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="705">
               <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
             </state>
           </provider>
@@ -236,17 +279,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Eprint_admin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="71" column="103" selection-start-line="71" selection-start-column="103" selection-end-line="71" selection-end-column="103" />
+            <state relative-caret-position="120">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+            <state relative-caret-position="-1530">
+              <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -315,10 +358,10 @@
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" />
         <option value="$PROJECT_DIR$/baseApp/static/ground/main.css" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/history.html" />
-        <option value="$PROJECT_DIR$/Eprint_users/views.py" />
-        <option value="$PROJECT_DIR$/Eprint_admin/views.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" />
         <option value="$PROJECT_DIR$/PrinterFac/settings.py" />
+        <option value="$PROJECT_DIR$/Eprint_users/views.py" />
+        <option value="$PROJECT_DIR$/Eprint_admin/views.py" />
       </list>
     </option>
   </component>
@@ -350,7 +393,7 @@
             <path>
               <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
               <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="Eprint_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
@@ -449,7 +492,7 @@
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16179952" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16416733" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -731,34 +774,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/views.py">
+    <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_admin/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="71" column="103" selection-start-line="71" selection-start-column="103" selection-end-line="71" selection-end-column="103" />
+        <state relative-caret-position="1995">
+          <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
+        <state relative-caret-position="705">
           <caret line="47" column="52" selection-start-line="47" selection-start-column="52" selection-end-line="47" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
+    <entry file="file://$PROJECT_DIR$/Eprint_admin/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="133" column="47" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+        <state relative-caret-position="120">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1530">
+          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
         </state>
       </provider>
     </entry>
