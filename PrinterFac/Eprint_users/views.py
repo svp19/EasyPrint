@@ -19,11 +19,6 @@ from django.core.mail import EmailMessage
 from Eprint_admin.models import RatePerPage
 from django.conf import settings
 
-'''
-pip install PyPDF2
-pip install pdfrw
-'''
-
 # Media Upload Server
 media_upload_url = settings.EASY_PRINT_MEDIA_UPLOAD_URL
 
@@ -49,24 +44,27 @@ def subset_pdf(inp_file, ranges):  # Create PDF with subset pages
             for page_num in range(one_range[0], one_range[1] + 1):
                 out_data.addpage(pages[page_num - 1])
                 num_pages += 1
-    except IndexError:
+    except IndexError:  # If user gave invalid pages
         return -1
     out_data.write()
     return num_pages
 
 
 def register(request):
-    if request.user.is_authenticated:
+    if request.user.is_authenticated:  # If user is logged in
         return redirect('baseApp-home')
     else:
         if request.method == 'POST':
-            user_form = UserRegisterForm(request.POST)
+            user_form = UserRegisterForm(request.POST)  # Populate form with instance submitted by user
             profile_form = ProfileForm()
+
             if user_form.is_valid():
                 user = user_form.save(commit=False)
 
                 user.is_active = False
                 user.save()
+
+                # Send account activation link to email
                 current_site = get_current_site(request)
                 message = render_to_string('Eprint_users/acc_active_email.html', {
                     'user': user,
@@ -78,6 +76,7 @@ def register(request):
                 to_email = user_form.cleaned_data.get('email')
                 email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
+
                 return render(request, 'ground/check_ack.html', {'activate': True})
                 # profile_form = ProfileForm(request.POST, instance=user)
                 # profile_form.save()
@@ -88,6 +87,7 @@ def register(request):
         else:
             user_form = UserRegisterForm()
             profile_form = ProfileForm()
+
         return render(request, 'Eprint_users/register.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
@@ -126,12 +126,14 @@ def history(request):
 
     return render(request, 'Eprint_users/history.html',
                   {'tasks': PrintDocs.objects.filter(file_name__icontains=query, is_confirmed=True,
-                                                     task_by=request.user).order_by('-date_uploaded')})
+                                                     task_by=request.user).order_by('-date_uploaded'),
+                   'query': query != ''})
 
 
 @login_required
 def bill(request):
-    unpaid = request.user.printdocs_set.filter(paid=False, is_confirmed=True)
+    # Documents which have been completed but not paid for
+    unpaid = request.user.printdocs_set.filter(completed=True, paid=False, is_confirmed=True)
     return render(request, 'Eprint_users/bill.html',
                   {'not_paid_tasks': unpaid,
                    'total_due': sum([i.price for i in unpaid])})
@@ -168,7 +170,6 @@ def print_upload(request):
             # ground_file_name = my_form.document.name.split('/')[-1]
 
             # Count Number Of Pages and calc Price
-
             my_form.num_pages = num_pages
             rate_per_page = rate_per_page_bw
             if request.POST.get('colour'):
@@ -177,23 +178,27 @@ def print_upload(request):
 
             my_form.save()
 
-            # on confirm
             return redirect('users-confirm')
 
     else:
         form = PrintForm(user=request.user)
+
     return render(request, 'Eprint_users/upload.html', {'form': form})
 
 
 @login_required
 def confirm(request):
-    print_doc = request.user.printdocs_set.last()  # Gets last uploaded document of user
+    # Redirects home if no tasks pending confirmation
+    print_doc = request.user.printdocs_set.last()
     if print_doc is None or print_doc.is_confirmed is True:
         return redirect('baseApp-home')
+
     form = ConfirmForm(instance=print_doc)
     form.is_confirmed = False
+
     if request.method == "POST":
         form = ConfirmForm(request.POST, instance=print_doc)
+
         if form.is_valid():
             if request.POST.get('is_confirmed'):
 
@@ -214,12 +219,14 @@ def confirm(request):
 
                 # Printing the job
                 cmd = "lp"
-                arg1 = "-U " + str(request.user.id)
-                arg2 = "-n " + str(print_doc.copies)
-                arg3 = "-t " + str(print_doc.id)
-                arg4 = print_doc.document.name
-                subprocess.run([cmd, arg1, arg2, arg3, arg4], encoding='utf-8', stdout=subprocess.PIPE)
+                args = ["-U " + str(request.user.id)]
+                args += ["-n " + str(print_doc.copies)]
+                args += ["-t " + str(print_doc.id)]
+                args += [print_doc.document.name]
+                # args += ["-d " + settings.EASY_PRINT_PRINTER_NAME]  # Not working for now
+                subprocess.run([cmd, *args], encoding='utf-8', stdout=subprocess.PIPE)
 
             form.save()
             return redirect('baseApp-home')
+
     return render(request, 'Eprint_users/confirm.html', {'form': form, 'price': print_doc.price})

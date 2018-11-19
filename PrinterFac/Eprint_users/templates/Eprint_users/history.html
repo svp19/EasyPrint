@@ -2,7 +2,7 @@
 {% block content %}
     <div class="content-below-nav">
         <center>
-            {% if tasks %}
+            {% if tasks or query %}
                 <h2 class="py-3">History</h2>
                 <form method="get" class="form active-cyan-4">
                     <input id="query" name="query" style="width: 80%;" class="form-control form-control-sm" type="text"
@@ -68,6 +68,7 @@
         </center>
     </div>
     <script>
+        // Getting the GET variables
         const urlParams = new URLSearchParams(window.location.search);
         const query = urlParams.get('query');
         document.getElementById("query").value = query;

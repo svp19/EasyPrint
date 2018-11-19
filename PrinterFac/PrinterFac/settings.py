@@ -130,8 +130,11 @@ LOGIN_REDIRECT_URL = 'baseApp-home'
 
 LOGIN_URL = 'login'  # Redirect with @login_required
 
+EASY_PRINT_MEDIA_DIR = 'media/documents/'  # Change the upload directory here
+
 EASY_PRINT_MEDIA_HOST = 'http://localhost:80/'  # Server for Apache file uploads
 EASY_PRINT_MEDIA_UPLOAD_URL = 'http://localhost:80/EP_upload_post.php'  # PHP script which handles the request
+EASY_PRINT_PRINTER_NAME = 'myprinter'  # lpadmin printer class name
 
 # Print Verification
 EMAIL_USE_TLS = True
