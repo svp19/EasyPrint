@@ -16,6 +16,8 @@
 Apache server is used to serve media files to the Admin page.
 Django server must be setup on a linux-based system and connected to the printer server.
 
+**Before starting with the deployment, configure all the variables in PrinterFac/settings.py**
+
 #### I. Setting up Django Server
 1. Clone this repository: `git clone https://github.com/svp19/EPrint`
 2. `cd` into `EPrint/PrinterFac`: `cd EPrint/PrinterFac`.
