@@ -6,7 +6,7 @@
 + **S V Praveen** [170010025@iitdh.ac.in]
 
 ## Features
-+ Login -> Upload -> Confirm -> Collect
++ Login ➤ Upload ➤ Confirm ➤ Collect
 + Automated server-side printing 
 + Email verification for institution
 + Easily configurable through intranet
