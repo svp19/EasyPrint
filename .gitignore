@@ -1,11 +1,10 @@
 *.pyc
 
-.idea/
-media/
-venv/
-
-db.sqlite3
-manage.py
+PrinterFac/.idea/
+PrinterFac/media/
+PrinterFac/venv/
+PrinterFac/db.sqlite3
+PrinterFac/manage.py
 
 *.txt
 *.md
