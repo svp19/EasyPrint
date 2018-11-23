@@ -1,8 +1,11 @@
 *.pyc
+
 .idea/
 media/
 venv/
+
 db.sqlite3
 manage.py
+
 *.txt
 *.md
