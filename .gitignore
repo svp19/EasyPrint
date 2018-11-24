@@ -5,6 +5,7 @@ PrinterFac/media/
 PrinterFac/venv/
 PrinterFac/db.sqlite3
 PrinterFac/manage.py
+__pycache__/
 
 *.txt
 *.md
