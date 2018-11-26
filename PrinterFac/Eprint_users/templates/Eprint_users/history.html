@@ -1,76 +1,65 @@
 {% extends "ground/base.html" %}
 {% block content %}
     <div class="content-below-nav">
-        <center>
-            {% if tasks or query %}
-                <h2 class="py-3">History</h2>
-                <form method="get" class="form active-cyan-4">
-                    <input id="query" name="query" style="width: 80%; border-radius: 40px;" class="form-control form-control-sm" type="text"
-                           placeholder="Search in documents" aria-label="Search">
-                    <button class="small-btn btn tempting-azure-gradient shadow-none">Search</button>
-                </form>
-                <div class="table-responsive">
-                    <table class="table-borderless bill-table">
+    <center>
+        {% if tasks%}
+            <h2 class="py-3">History</h2>
+            <div class="table-responsive">
+                <table border="0|0" class="table-borderless bill-table">
+                    <tr>
+                        <th>Document Name</th>
+                        <th>Date Added</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for task in tasks %}
                         <tr>
-                            <th>Document Name</th>
-                            <th>Date Added</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                        </tr>
-                        {% for task in tasks %}
-                            <tr>
-                                <td class="deep-blue-gradient">{{ task.file_name }}</td>
-                                <td>{{ task.date_uploaded }}</td>
-                                <td>{{ task.price }}</td>
-                                <td>{% if task.completed %}
+                            <td class="deep-blue-gradient">{{ task.file_name }}</td>
+                            <td>{{ task.date_uploaded }}</td>
+                            <td>{{ task.price }}</td>
+                            <td>{% if task.completed %}
                                     <span class="badge badge-success align-middle shadow-none">
                                         <i class="fas fa-print mr-1"></i>
                                         PRINTED
                                     </span>
                                 {% else %}
-                                    <span class="badge badge-danger align-middle shadow-none">
+                                    <span class="badge badge-warning align-middle shadow-none">
                                         <i class="fas fa-print mr-1"></i>
                                         PENDING
                                     </span>
                                 {% endif %}
-                                    {% if task.paid %}
-                                        <span class="badge badge-success align-middle shadow-none">
+                                {% if task.paid %}
+                                    <span class="badge badge-success align-middle shadow-none">
                                         <i class="fas fa-rupee-sign mr-1"></i>
                                         PAID
                                     </span>
-                                    {% else %}
-                                        <span class="badge badge-danger align-middle shadow-none">
+                                {% else %}
+                                    <span class="badge badge-warning align-middle shadow-none">
                                         <i class="fas fa-rupee-sign mr-1"></i>
                                         PENDING
                                     </span>
-                                    {% endif %}
-                                    {% if task.collected %}
-                                        <span class="badge badge-success align-middle shadow-none">
+                                {% endif %}
+                                {% if task.collected %}
+                                    <span class="badge badge-success align-middle shadow-none">
                                         <i class="fas fa-check mr-1"></i>
                                         COLLECTED
                                     </span>
-                                    {% else %}
-                                        <span class="badge badge-danger align-middle shadow-none">
+                                {% else %}
+                                    <span class="badge badge-warning align-middle shadow-none">
                                         <i class="fas fa-times mr-1"></i>
                                         NOT COLLECTED
                                     </span>
-                                    {% endif %}
+                                {% endif %}
 
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </div>
-            {% else %}
-                There are no files given by you. Get started <a href="{% url 'users-upload' %}">here</a>!
-            {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% else %}
+            There are no files given by you. Get started <a href="{% url 'users-upload' %}">here</a>!
+        {% endif %}
 
-        </center>
+    </center>
     </div>
-    <script>
-        // Getting the GET variables
-        const urlParams = new URLSearchParams(window.location.search);
-        const query = urlParams.get('query');
-        document.getElementById("query").value = query;
-    </script>
 {% endblock content %}

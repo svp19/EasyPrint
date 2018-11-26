@@ -2,33 +2,49 @@ body {
     margin: 0;
     padding-top: 0px;
     border: 0;
+    background: url("bg.jpg");
+    background-size: cover;
 }
 
-.bg-custom {
-    background: #95d9ff !important;
+/*********************** To fit the background image ************************/
+
+.text-white {
+    color: white;
 }
 
-.mynavbarlogo {
+th {
+    color: white;
+}
+
+.custom.text-muted {
+    color: rgba(218, 218, 218, 0.61) !important;
+}
+
+/************************************ Nav Bars *******************************/
+
+.my_nav_bar_logo {
     color: white;
     width: 20%;
 }
 
 @media only screen and (max-width: 600px) {
-    .mynavbarlogo {
+    .my_nav_bar_logo {
         width: 50%;
     }
 }
 
-.mynavbarsmall {
+.my_nav_bar_small {
     background: rgba(0, 0, 0, 0.3);
     margin-top: 2%;
     color: white;
 }
 
-.mynavbarsmall li {
+.my_nav_bar_small li {
     padding: 5%;
     font-size: 5vw;
 }
+
+/************************************ Main elements *********************************/
 
 .content-below-nav {
     margin-top: 90px;
@@ -59,23 +75,6 @@ body {
     height: 100vh;
     line-height: 100vh;
     background-color: white;
-}
-
-.small-btn.btn { /* Small Buttons */
-    padding: .4rem 1.5rem;
-}
-
-.col-md-6 {
-    text-align: center;
-    padding: 0;
-}
-
-.col-md-6 a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    background: black;
 }
 
 .home-heading {
@@ -109,45 +108,64 @@ body {
     }
 }
 
+/********************************* Misc *********************************/
+
+.small-btn.btn { /* Small Buttons */
+    padding: .4rem 1.5rem;
+    border-radius: 0.4rem;
+}
+
+.badge {
+    border-radius: 1rem;
+    padding: 0.4rem;
+}
+
+.col-md-6 {
+    text-align: center;
+    padding: 0;
+}
+
+.col-md-6 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    background: black;
+}
+
 /* ---------------------------------- Home page ends ------------------------------------*/
 
 .bill-table {
     width: 80%;
     text-align: center;
+    border-collapse: separate; /** Lit **/
 }
 
-.print-list td {
-    background-color: #95d9ff;
-    text-align: center;
-    padding: 10px;
-    border-bottom: 10px solid white;
+.bill-table tr th {
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
-.print-list td:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+.bill-table tr td {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: black;
 }
 
-.print-list td:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+.bill-table tr td:nth-child(4n) {
+    background: linear-gradient(to right, #6DD5FA -20%, #2980B9 90%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.bill-table td {
-    background-color: #95d9ff;
-    text-align: center;
-    padding: 10px;
-    border-bottom: 10px solid white;
+.bill-table tr td:nth-child(4n-1) {
+    background: #4DBCE9;
 }
 
-.bill-table td:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+.bill-table tr td:nth-child(4n-2) {
+    background: #26ADE4;
 }
 
-.bill-table td:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+.bill-table tr td:nth-child(4n-3) {
+    background: #4DBCE9;
 }
 
 /* --------------------------------- Crispy Form Tags ----------------------------------- */
