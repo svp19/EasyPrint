@@ -12,7 +12,10 @@ from django.contrib.admin.views.decorators import user_passes_test
 
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')  # Decorator for staff access
-def tasks(request, order_by='all'):
+def tasks(request):
+    # Get filter
+    filter_by = request.GET.get('filter_by') or 'all'
+    query=None
     # Updating jobs
     run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
     output = run_queue.stdout
@@ -31,6 +34,15 @@ def tasks(request, order_by='all'):
         # Q objects are a way to OR queries together
     else:
         docs = PrintDocs.objects.filter(is_confirmed=True)
+    
+    # Filter_by_here
+    docs = docs.order_by("-date_uploaded")
+    if filter_by == 'paid':
+        docs = docs.filter(paid="True")
+    elif filter_by == 'collected':
+        docs = docs.filter(collected="True")
+    elif filter_by == "completed":
+        docs = docs.filter(completed="True")
 
     forms = []  # List for all the forms to be shown
     edits = {x: False for x in range(len(docs))}  # Count the number of edits for confirmation message
