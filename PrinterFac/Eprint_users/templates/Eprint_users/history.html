@@ -11,6 +11,30 @@
                     <button class="small-btn btn tempting-azure-gradient shadow-none">Search</button>
                 </form>
             </div>
+            <ul class="nav nav-tabs bill-table">
+                <li class="nav-item">
+                    <a class="nav-link {% if filter_by == "all" %}active{% endif %}"
+                       href="/users/{% if query is not None %}?query={{ query }}{% endif %}"> All </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if filter_by == "completed" %}active{% endif %}"
+                       href="/users/?filter_by=completed&{% if query is not None %}query={{ query }}{% endif %} ">
+                        Completed </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if filter_by == "collected" %}active{% endif %}"
+                       href="/users/?filter_by=collected&{% if query is not None %}query={{ query }}{% endif %} ">
+                        Collected </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if filter_by == "paid" %}active{% endif %}"
+                       href="/users/?filter_by=paid&{% if query is not None %}query={{ query }}{% endif %} ">
+                        Paid </a>
+                </li>
+                <li class="nav-item ml-auto mr-5">
+                    <button class="small-btn btn aqua-gradient shadow-none">Update</button>
+                </li>
+               </ul>
             <div class="table-responsive">
                 <table border="0|0" class="table-borderless bill-table">
                     <tr>
