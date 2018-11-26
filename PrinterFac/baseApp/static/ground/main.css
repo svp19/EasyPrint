@@ -11,8 +11,8 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: white;
 }
-.text-white {
-    color: white;
+.text-black {
+    color: black;
 }
 
 th {
@@ -111,6 +111,14 @@ th {
     }
 }
 
+/********************************* Tabs ********************************/
+
+.nav-tabs {
+    border: none !important;
+    margin: 3px;
+}
+
+
 /********************************* Misc *********************************/
 
 .small-btn.btn { /* Small Buttons */
@@ -171,7 +179,6 @@ th {
 .print-footer {
     min-height: 5vh;
     line-height: 5vh;
-    letter-spacing: 1px;
     overflow: hidden;
 }
 

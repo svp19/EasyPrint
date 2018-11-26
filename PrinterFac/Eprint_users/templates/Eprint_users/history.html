@@ -2,13 +2,13 @@
 {% block content %}
     <div class="content-below-nav">
     <center>
-        {% if tasks or query%}
+        {% if tasks or query or filter_by%}
             <h2 class="py-3">History</h2>
             <div style="padding-bottom: 3%;">
                 <form method="get" class="form active-cyan-4">
                     <input id="query" name="query" style="width: 80%; border-radius: 40px; margin-bottom: 1%;" class="form-control form-control-sm" type="text"
                            placeholder="Search in documents" aria-label="Search">
-                    <button class="small-btn btn tempting-azure-gradient shadow-none">Search</button>
+                    <button class="small-btn btn aqua-gradient shadow-none">Search</button>
                 </form>
             </div>
             <ul class="nav nav-tabs bill-table">
@@ -30,9 +30,6 @@
                     <a class="nav-link {% if filter_by == "paid" %}active{% endif %}"
                        href="/users/?filter_by=paid&{% if query is not None %}query={{ query }}{% endif %} ">
                         Paid </a>
-                </li>
-                <li class="nav-item ml-auto mr-5">
-                    <button class="small-btn btn aqua-gradient shadow-none">Update</button>
                 </li>
                </ul>
             <div class="table-responsive">

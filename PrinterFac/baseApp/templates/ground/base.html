@@ -56,6 +56,7 @@
             <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown">
                 Menu </a>
                 <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="{% url 'baseApp-home' %}">Home</a>
                     <a class="dropdown-item" href="{% url 'users-profile' %}">Profile</a>
                     <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
@@ -63,6 +64,9 @@
         </ul>
         <!--Links for Small screens-->
         <ul class="mynavbarsmall navbar-nav ml-auto d-block d-md-none">
+            <li class="nav-item">
+                <a style="color: #fff;" href="{% url 'baseApp-home' %}"> Home </a>
+            </li>
             <li class="nav-item">
                 <a style="color: #fff;" href="{% url 'users-profile' %}"> Profile </a>
             </li>
@@ -74,24 +78,13 @@
 {% endif %}
     <!--Navbar Links-->
 </nav>
-{% if messages %}
-    <div class="content-below-nav">
-        {% for message in messages %}
-            <center>
-                <ul style="list-style: none;">
-                    <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-                </ul>
-            </center>
-        {% endfor %}
-    </div>
-{% endif %}
 
 {% block content %}
 
 {% endblock %}
 
 <!-- Footer -->
-<footer class="print-footer font-small  mdb-color unique-color-dark bottom">
+<footer class="print-footer font-small rgba-teal-strong bottom">
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-2 institute">

@@ -129,7 +129,7 @@ def history(request):
     docs = PrintDocs.objects.filter(file_name__icontains=query, is_confirmed=True, task_by=request.user).order_by(
         '-date_uploaded')
 
-    # Filter_by_here [ Sphaggheti Code ToClean]
+    # Filter_by_here [ Spaghetti Code ToClean]
     if filter_by == 'paid':
         docs = docs.filter(paid="True")
     elif filter_by == 'collected':
@@ -138,7 +138,7 @@ def history(request):
         docs = docs.filter(completed="True")
 
     return render(request, 'Eprint_users/history.html',
-                  {'tasks': docs, 'query': query})
+                  {'tasks': docs, 'query': query, 'filter_by':filter_by})
 
 
 @login_required

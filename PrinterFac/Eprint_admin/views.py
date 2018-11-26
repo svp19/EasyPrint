@@ -14,8 +14,9 @@ from django.contrib.admin.views.decorators import user_passes_test
 @user_passes_test(lambda u: u.is_staff, login_url='login')  # Decorator for staff access
 def tasks(request):
     # Get filter
+    query = None
     filter_by = request.GET.get('filter_by') or 'all'
-    query=None
+
     # Updating jobs
     run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
     output = run_queue.stdout
@@ -109,7 +110,7 @@ def tasks(request):
         # curr_dir = os.getcwd().replace('\\', '/'), 'curr_dir': curr_dir,
         return render(request, 'Eprint_admin/tasks.html',
                       {'context': context, 'host': settings.EASY_PRINT_MEDIA_HOST,
-                       'media_dir': settings.EASY_PRINT_MEDIA_DIR})
+                       'media_dir': settings.EASY_PRINT_MEDIA_DIR, 'filter_by': filter_by, 'query': query})
 
 
 @user_passes_test(lambda u: u.is_staff, login_url='login')
