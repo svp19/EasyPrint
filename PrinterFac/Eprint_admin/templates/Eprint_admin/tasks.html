@@ -12,11 +12,13 @@
             </div>
             <br>
             <h1>Tasks</h1><br><br>
-            <form method="get" class="form active-cyan-4">
-                <input id="query" name="query" style="width: 80%; border-radius: 40px;" class="form-control form-control-sm" type="text"
-                       placeholder="Search in documents or users" aria-label="Search">
-                <button class="small-btn btn tempting-azure-gradient shadow-none">Search</button>
-            </form>
+            <div style="padding-bottom: 3%;">
+                <form method="get" class="form active-cyan-4">
+                    <input id="query" name="query" style="width: 80%; border-radius: 40px; margin-bottom: 1%;" class="form-control form-control-sm" type="text"
+                           placeholder="Search in documents or users" aria-label="Search">
+                    <button class="small-btn btn tempting-azure-gradient shadow-none">Search</button>
+                </form>
+            </div>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="table-responsive">
@@ -48,6 +50,9 @@
                                        href="{{ host }}{{ media_dir }}{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
                                         <button onclick="" type="button"
                                                 class="small-btn btn blue-gradient shadow-none">View
+                                        </button>
+                                        <button onclick="" type="button"
+                                                class="small-btn btn blue-gradient shadow-none">Re-Print
                                         </button>
                                     </a>
                                 </td>

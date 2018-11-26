@@ -2,12 +2,15 @@ body {
     margin: 0;
     padding-top: 0px;
     border: 0;
-    background: url("bg.jpg");
+    background: url("bg-blue.jpg") fixed;
     background-size: cover;
 }
 
 /*********************** To fit the background image ************************/
 
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
 .text-white {
     color: white;
 }
@@ -47,7 +50,7 @@ th {
 /************************************ Main elements *********************************/
 
 .content-below-nav {
-    margin-top: 90px;
+    margin-top: 120px;
     min-height: 80vh;
     margin-bottom: 10px;
 }
@@ -112,7 +115,7 @@ th {
 
 .small-btn.btn { /* Small Buttons */
     padding: .4rem 1.5rem;
-    border-radius: 0.4rem;
+    border-radius: 1rem;
 }
 
 .badge {
@@ -147,25 +150,15 @@ th {
 }
 
 .bill-table tr td {
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 1rem;
+    padding: .4rem;
     box-shadow: black;
+    margin-bottom: 2%;
 }
 
-.bill-table tr td:nth-child(4n) {
-    background: linear-gradient(to right, #6DD5FA -20%, #2980B9 90%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-.bill-table tr td:nth-child(4n-1) {
-    background: #4DBCE9;
-}
-
-.bill-table tr td:nth-child(4n-2) {
-    background: #26ADE4;
-}
-
-.bill-table tr td:nth-child(4n-3) {
-    background: #4DBCE9;
+.bill-table tr td {
+    /*background: linear-gradient(to right, #6DD5FA -20%, #2980B9 90%); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
+    background: rgba(255, 255, 255, 0.7);
 }
 
 /* --------------------------------- Crispy Form Tags ----------------------------------- */
