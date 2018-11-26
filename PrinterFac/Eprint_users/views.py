@@ -109,6 +109,9 @@ def activate(request, uidb64, token):
 
 @login_required
 def history(request):
+    filter_by = request.GET.get('filter_by') or 'all'
+    query = None
+
     # Get printer queue
     run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
     output = run_queue.stdout
@@ -123,11 +126,19 @@ def history(request):
     query = ''
     if request.GET.get('query'):
         query = request.GET.get('query')
+    docs = PrintDocs.objects.filter(file_name__icontains=query, is_confirmed=True, task_by=request.user).order_by(
+        '-date_uploaded')
+
+    # Filter_by_here [ Sphaggheti Code ToClean]
+    if filter_by == 'paid':
+        docs = docs.filter(paid="True")
+    elif filter_by == 'collected':
+        docs = docs.filter(collected="True")
+    elif filter_by == "completed":
+        docs = docs.filter(completed="True")
 
     return render(request, 'Eprint_users/history.html',
-                  {'tasks': PrintDocs.objects.filter(file_name__icontains=query, is_confirmed=True,
-                                                     task_by=request.user).order_by('-date_uploaded'),
-                   'query': query != ''})
+                  {'tasks': docs, 'query': query})
 
 
 @login_required
