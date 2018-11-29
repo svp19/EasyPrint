@@ -10,4 +10,3 @@ function checkChecked() {
         vic.innerHTML = "Confirm";
     }
 }
-

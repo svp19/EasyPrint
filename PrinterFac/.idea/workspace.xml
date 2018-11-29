@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_admin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/history.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/history.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/baseApp/templates/ground/payment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/checksum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eprint_users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Eprint_users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseApp/static/ground/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/static/ground/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/static/ground/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/static/ground/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,60 +187,126 @@
     <session id="-2120969848">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.128" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.91" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="5" />
-          <entry key="html" value="32" />
-          <entry key="py" value="45" />
+          <entry key="css" value="10" />
+          <entry key="html" value="40" />
+          <entry key="js" value="6" />
+          <entry key="py" value="55" />
           <entry key="rnc" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="5" />
-          <entry key="HTML" value="32" />
-          <entry key="Python" value="45" />
+          <entry key="CSS" value="10" />
+          <entry key="HTML" value="40" />
+          <entry key="JavaScript" value="6" />
+          <entry key="Python" value="55" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Django Console" value="105" />
-          <entry key="css" value="471" />
-          <entry key="html" value="1711" />
-          <entry key="py" value="3047" />
+          <entry key="Django Console" value="118" />
+          <entry key="css" value="596" />
+          <entry key="html" value="2524" />
+          <entry key="js" value="4" />
+          <entry key="py" value="3642" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="471" />
-          <entry key="HTML" value="1711" />
-          <entry key="Python" value="3152" />
+          <entry key="CSS" value="596" />
+          <entry key="HTML" value="2524" />
+          <entry key="JavaScript" value="4" />
+          <entry key="Python" value="3760" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baseApp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="136" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="136" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/payment.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/login.html">
+        <entry file="file://$PROJECT_DIR$/checksum.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2565">
+              <caret line="191" column="68" selection-start-line="191" selection-start-column="68" selection-end-line="191" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Eprint_users/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -250,14 +316,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
+    <findStrings>
+      <find>auto</find>
+    </findStrings>
     <dirStrings>
       <dir>D:\Programming\Python\Django\PrinterFac\Eprint_users\templates\Eprint_users</dir>
     </dirStrings>
@@ -283,7 +352,6 @@
         <option value="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/forms.py" />
         <option value="$PROJECT_DIR$/PrinterFac/urls.py" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/logout.html" />
-        <option value="$PROJECT_DIR$/baseApp/urls.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/update.html" />
         <option value="$PROJECT_DIR$/Eprint_admin/forms.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/models.py" />
@@ -292,19 +360,15 @@
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/register.html" />
         <option value="$PROJECT_DIR$/Eprint_users/urls.py" />
         <option value="$PROJECT_DIR$/baseApp/templates/ground/check_ack.html" />
-        <option value="$PROJECT_DIR$/baseApp/static/ground/main.js" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" />
-        <option value="$PROJECT_DIR$/baseApp/views.py" />
         <option value="$PROJECT_DIR$/Eprint_users/apps.py" />
         <option value="$PROJECT_DIR$/Eprint_users/admin.py" />
-        <option value="$PROJECT_DIR$/Eprint_users/models.py" />
         <option value="$PROJECT_DIR$/Eprint_users/forms.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/apps.py" />
         <option value="$PROJECT_DIR$/PrinterFac/settings.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/urls.py" />
         <option value="$PROJECT_DIR$/baseApp/templates/ground/home.html" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/upload.html" />
-        <option value="$PROJECT_DIR$/Eprint_users/views.py" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html" />
         <option value="$PROJECT_DIR$/Eprint_admin/views.py" />
         <option value="$PROJECT_DIR$/Eprint_admin/templates/Eprint_admin/tasks.html" />
@@ -312,8 +376,18 @@
         <option value="$PROJECT_DIR$/baseApp/templates/ground/about.html" />
         <option value="$PROJECT_DIR$/baseApp/templates/ground/logout.html" />
         <option value="$PROJECT_DIR$/baseApp/templates/ground/login.html" />
+        <option value="$PROJECT_DIR$/baseApp/urls.py" />
+        <option value="$PROJECT_DIR$/baseApp/static/ground/main.js" />
         <option value="$PROJECT_DIR$/baseApp/static/ground/main.css" />
         <option value="$PROJECT_DIR$/baseApp/templates/ground/base.html" />
+        <option value="$PROJECT_DIR$/baseApp/static/ground/js/index.js" />
+        <option value="$PROJECT_DIR$/baseApp/static/ground/card.js" />
+        <option value="$PROJECT_DIR$/baseApp/static/ground/card.css" />
+        <option value="$PROJECT_DIR$/Eprint_users/models.py" />
+        <option value="$PROJECT_DIR$/baseApp/views.py" />
+        <option value="$PROJECT_DIR$/Eprint_users/views.py" />
+        <option value="$PROJECT_DIR$/baseApp/templates/ground/payment.html" />
+        <option value="$PROJECT_DIR$/checksum.py" />
       </list>
     </option>
   </component>
@@ -335,7 +409,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,48 +419,13 @@
             <path>
               <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
               <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="baseApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="baseApp" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="baseApp" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="ground" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
-              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="Eprint_users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
               <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -475,7 +513,7 @@
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18232045" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19810577" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -489,10 +527,11 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32786885" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015129" side_tool="true" weight="0.29787233" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" weight="0.2948929" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.26929393" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" visible="true" weight="0.2948929" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.26853377" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3289689" />
       <window_info anchor="bottom" id="manage.py@PrinterFac" order="14" weight="0.3295082" />
+      <window_info anchor="bottom" id="Messages" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -512,21 +551,6 @@
     </ignored-roots>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/baseApp/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/about.html" />
-    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/base.html" />
-    <entry file="das://d9aa7c3b-8714-4daf-a215-bcd013a96d7c/schema/main/table/sqlite_master" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d9aa7c3b-8714-4daf-a215-bcd013a96d7c/console.sql" />
-    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-984">
-          <caret line="355" column="6" selection-start-line="355" selection-start-column="6" selection-end-line="355" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/history.html" />
     <entry file="file://$PROJECT_DIR$/baseApp/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -556,13 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/baseApp/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -584,13 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PrinterFac/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -603,13 +613,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/baseApp/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="24" column="78" selection-start-line="24" selection-start-column="78" selection-end-line="24" selection-end-column="78" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_users/admin.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -625,22 +628,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="41" column="72" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_users/tokens.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="55" column="69" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -708,20 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="139" column="27" selection-start-line="139" selection-start-column="27" selection-end-line="139" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Eprint_admin/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -733,9 +708,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#center#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -774,27 +746,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.css">
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="178" column="15" selection-start-line="178" selection-start-column="15" selection-end-line="178" selection-end-column="15" />
+        <state relative-caret-position="165">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/css/style.css" />
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/js/index.js" />
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/index.html" />
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/card.js" />
+    <entry file="file://$PROJECT_DIR$/baseApp/static/ground/card.css" />
     <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="86" column="56" selection-start-line="86" selection-start-column="56" selection-end-line="86" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="33" column="80" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/login.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="26" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="136" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2565">
+          <caret line="191" column="68" selection-start-line="191" selection-start-column="68" selection-end-line="191" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Eprint_users/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/crypto/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/checksum.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

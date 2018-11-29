@@ -51,6 +51,7 @@ class PrintDocs(models.Model):
     paid = models.BooleanField(default=False)
     collected = models.BooleanField(default=False)
     is_confirmed = models.BooleanField(default=False)
+    order_id = models.CharField(max_length=50, default='')
 
     def __str__(self):
         return self.document.name

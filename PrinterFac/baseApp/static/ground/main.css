@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,900,700,500);
+
 body {
     margin: 0;
-    padding-top: 0px;
+    padding-top: 0;
     border: 0;
     background: url("bg-blue.jpg") fixed;
     background-size: cover;
@@ -11,6 +13,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     color: white;
 }
+
 .text-black {
     color: black;
 }
@@ -118,7 +121,6 @@ th {
     margin: 3px;
 }
 
-
 /********************************* Misc *********************************/
 
 .small-btn.btn { /* Small Buttons */
@@ -172,7 +174,7 @@ th {
 /* --------------------------------- Crispy Form Tags ----------------------------------- */
 .asteriskField {
     color: #cc1111;
-    margin: 0px 2px;
+    margin: 0 2px;
 }
 
 /* ---------------------------------- Footer --------------------------------------- */

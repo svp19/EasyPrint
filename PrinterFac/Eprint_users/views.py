@@ -1,3 +1,4 @@
+import datetime
 import subprocess
 
 import requests
@@ -187,6 +188,9 @@ def print_upload(request):
                 rate_per_page = rate_per_page_c
             my_form.price = float(request.POST.get('copies')) * num_pages * rate_per_page
 
+            # Generate order id
+            my_form.order_id = (datetime.datetime.now().strftime('%S%M%I%d%m%Y') + str(request.user.pk)).zfill(50)
+
             my_form.save()
 
             return redirect('users-confirm')
@@ -238,6 +242,6 @@ def confirm(request):
                 subprocess.run([cmd, *args], encoding='utf-8', stdout=subprocess.PIPE)
 
             form.save()
-            return redirect('baseApp-home')
+            return redirect('payment')
 
     return render(request, 'Eprint_users/confirm.html', {'form': form, 'price': print_doc.price})
