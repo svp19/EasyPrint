@@ -97,7 +97,21 @@ def tasks(request):
                     edits[i] = True
             temp_doc.save()
 
-        messages.success(request, 'Successfully updated {0} document(s)'.format(sum(edits.values())))
+        # Reprinting
+        reprints = PrintDocs.objects.filter(is_confirmed=True)
+        for reprint in reprints:
+            if request.POST.get('reprint' + str(reprint.id)) == "on":
+            if request.POST.get('reprint' + str(reprint.id)) == 'on':
+                cmd = "lp"
+                args = ["-U " + str(reprint.task_by_id)]
+                args += ["-n " + str(reprint.copies)]
+                args += ["-t " + str(reprint.id)]
+                args += [reprint.document.name]
+                # args += ["-d " + settings.EASY_PRINT_PRINTER_NAME]  # Not working for now
+                proc = subprocess.run([cmd, *args], encoding='utf-8', stdout=subprocess.PIPE)
+
+        if sum(edits.values()) > 0:
+            messages.success(request, 'Successfully updated {0} document(s)'.format(sum(edits.values())))
         return redirect('admin-tasks')
     else:
         for doc in docs:

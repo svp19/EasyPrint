@@ -146,6 +146,11 @@ th {
     background: black;
 }
 
+.action-btn {
+    font-size: 18px;
+    color: #000;
+}
+
 /* ---------------------------------- Home page ends ------------------------------------*/
 
 .bill-table {
@@ -167,8 +172,10 @@ th {
 }
 
 .bill-table tr td {
-    /*background: linear-gradient(to right, #6DD5FA -20%, #2980B9 90%); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(0,0,0, 0.18);
+    color: #cbd9d5;
+    /*background: rgba(255,255,255,0.85);*/
+    /*color: black;*/
 }
 
 /* --------------------------------- Crispy Form Tags ----------------------------------- */
