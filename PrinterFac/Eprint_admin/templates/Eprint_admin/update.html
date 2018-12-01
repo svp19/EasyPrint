@@ -2,6 +2,18 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="container-fluid col-md-4 content-below-nav">
+        {% if messages %}
+            {% for message in messages %}
+                <center>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li class="alert alert-{{ message.tags }} alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </li>
+                    </ul>
+                </center>
+            {% endfor %}
+        {% endif %}
         <center><h2 class="py-3">Update Prices</h2></center>
         <div class="card p-3 ">
             <form method="post">

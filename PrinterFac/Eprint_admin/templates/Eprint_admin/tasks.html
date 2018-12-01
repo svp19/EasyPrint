@@ -6,7 +6,10 @@
             {% for message in messages %}
                 <center>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+                        <li class="alert alert-{{ message.tags }} alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            {{ message }}
+                        </li>
                     </ul>
                 </center>
             {% endfor %}
@@ -26,37 +29,37 @@
                     <input id="query" name="query" style="width: 80%; border-radius: 40px; margin-bottom: 1%;"
                            class="form-control form-control-sm" type="text"
                            placeholder="Search in documents or users" aria-label="Search">
-                    <button class="small-btn btn aqua-gradient shadow-none">Search</button>
+                    <button class="small-btn btn aqua-gradient shadow-none"><strong>Search</strong></button>
                 </form>
             </div>
             <form method="post" enctype="multipart/form-data">
                 <ul class="nav nav-tabs bill-table">
                     <li class="nav-item">
-                        <a class="nav-link {% if filter_by == "all" %}active{% endif %}"
+                        <a class="nav-link {% if filter_by == "all" %}active {% else %} text-white {% endif %}"
                            href="/EAdmin/{% if query is not None %}?query={{ query }}{% endif %}"> All </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if filter_by == "completed" %}active{% endif %}"
+                        <a class="nav-link {% if filter_by == "completed" %}active {% else %} text-white {% endif %}"
                            href="/EAdmin/?filter_by=completed&{% if query is not None %}query={{ query }}{% endif %} ">
                             Completed </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if filter_by == "collected" %}active{% endif %}"
+                        <a class="nav-link {% if filter_by == "collected" %}active {% else %} text-white {% endif %}"
                            href="/EAdmin/?filter_by=collected&{% if query is not None %}query={{ query }}{% endif %} ">
                             Collected </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if filter_by == "paid" %}active{% endif %}"
+                        <a class="nav-link {% if filter_by == "paid" %}active {% else %} text-white {% endif %}"
                            href="/EAdmin/?filter_by=paid&{% if query is not None %}query={{ query }}{% endif %} ">
                             Paid </a>
                     </li>
                     <li class="nav-item ml-auto">
-                        <button class="small-btn btn aqua-gradient shadow-none">Update</button>
+                        <button class="small-btn btn btn-danger shadow-none"><strong>Update</strong></button>
                     </li>
                 </ul>
                 {% csrf_token %}
                 <div class="table-responsive">
-                    <table class="print-list bill-table table-borderless">
+                    <table class="bill-table table-borderless">
                         <tr>
                             <th>Document</th>
                             <th>User</th>
@@ -70,25 +73,36 @@
                                 </td>
                                 <td>{{ mytask.0.task_by }}</td>
                                 <td>
+                                    <table class="mx-auto"  >
                                     {% for element in mytask.1 %}
                                         {% if forloop.counter != 1 %}
-                                            {{ element.label }}: &nbsp;
-                                            <input type="checkbox" name="{{ element.name }}{{ mytask.2 }}"
-                                                   id="id_completed" {% if element.value == True %}checked{% endif %}>
-                                            <br>
+
+                                                <tr>
+                                                    <td class="text-right" style="background: none;">{{ element.label }}:</td>
+                                                    <td style="background: none;">&nbsp;
+                                                        <input type="checkbox" style="width: 16px;height: 16px;"
+                                                          name="{{ element.name }}{{ mytask.2 }}"
+                                                          id="id_completed"
+                                                          {% if element.value == True %}checked{% endif %}>
+                                                    </td>
+                                                </tr>
                                         {% endif %}
                                     {% endfor %}
+                                    </table>
                                 </td>
                                 <td>
                                     <a target="_blank"
                                        href="
-
                                                {{ host }}{{ media_dir }}{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
                                         <button onclick="" type="button"
-                                                class="small-btn btn blue-gradient shadow-none">View
+                                                class="small-btn btn action-btn shadow-none">
+                                            <i class="fas fa-eye"></i>
+
                                         </button>
                                         <button onclick="" type="button"
-                                                class="small-btn btn blue-gradient shadow-none">Re-Print
+                                                class="small-btn btn action-btn shadow-none" >
+                                            <i class="fa fa-print" aria-hidden="true">
+                                            </i>
                                         </button>
                                     </a>
                                 </td>

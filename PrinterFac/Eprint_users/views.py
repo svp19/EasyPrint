@@ -189,7 +189,7 @@ def print_upload(request):
             my_form.price = float(request.POST.get('copies')) * num_pages * rate_per_page
 
             # Generate order id
-            my_form.order_id = (datetime.datetime.now().strftime('%S%M%I%d%m%Y') + str(request.user.pk)).zfill(50)
+            my_form.order_id = datetime.datetime.now().strftime('%S%M%I%d%m%Y') + str(request.user.pk)
 
             my_form.save()
 
