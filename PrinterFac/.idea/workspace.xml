@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/baseApp/templates/ground/payment.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/checksum.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/static/ground/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/static/ground/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/static/ground/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/static/ground/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/templates/ground/payment.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/baseApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/checksum.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -187,13 +180,14 @@
     <session id="-2120969848">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="14" />
+          <entry key="project.closed" value="18" />
           <entry key="project.open.time.128" value="1" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.36" value="1" />
-          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.36" value="2" />
+          <entry key="project.open.time.37" value="2" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.46" value="1" />
@@ -201,9 +195,9 @@
           <entry key="project.open.time.59" value="1" />
           <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.open.time.91" value="1" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.open.time.91" value="2" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -226,30 +220,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Django Console" value="118" />
+          <entry key="Django Console" value="194" />
           <entry key="css" value="596" />
-          <entry key="html" value="2524" />
+          <entry key="html" value="2602" />
           <entry key="js" value="4" />
-          <entry key="py" value="3642" />
+          <entry key="py" value="3942" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="596" />
-          <entry key="HTML" value="2524" />
+          <entry key="HTML" value="2602" />
           <entry key="JavaScript" value="4" />
-          <entry key="Python" value="3760" />
+          <entry key="Python" value="4136" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/baseApp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
+            <state relative-caret-position="105">
+              <caret line="34" column="102" selection-start-line="34" selection-start-column="102" selection-end-line="34" selection-end-column="102" />
+              <folding>
+                <element signature="e#54#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -257,7 +254,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Eprint_users/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
+            <state relative-caret-position="339">
               <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
             </state>
           </provider>
@@ -275,20 +272,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/payment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/checksum.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -326,7 +311,11 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>auto</find>
+      <find>'</find>
     </findStrings>
+    <replaceStrings>
+      <replace>&quot;</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>D:\Programming\Python\Django\PrinterFac\Eprint_users\templates\Eprint_users</dir>
     </dirStrings>
@@ -384,10 +373,10 @@
         <option value="$PROJECT_DIR$/baseApp/static/ground/card.js" />
         <option value="$PROJECT_DIR$/baseApp/static/ground/card.css" />
         <option value="$PROJECT_DIR$/Eprint_users/models.py" />
-        <option value="$PROJECT_DIR$/baseApp/views.py" />
         <option value="$PROJECT_DIR$/Eprint_users/views.py" />
-        <option value="$PROJECT_DIR$/baseApp/templates/ground/payment.html" />
         <option value="$PROJECT_DIR$/checksum.py" />
+        <option value="$PROJECT_DIR$/baseApp/templates/ground/payment.html" />
+        <option value="$PROJECT_DIR$/baseApp/views.py" />
       </list>
     </option>
   </component>
@@ -419,6 +408,11 @@
             <path>
               <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
               <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
+              <item name="baseApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PrinterFac" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
               <item name="PrinterFac" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -440,14 +434,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Programming\Python\Django\PrinterFac\baseApp\templates\ground" />
-      <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_admin" />
-      <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_admin\templates\Eprint_admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\S V Praveen\Documents\GitHub\EPrint\PrinterFac\baseApp\static\ground" />
       <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/baseApp" />
+      <recent name="D:\Programming\Python\Django\PrinterFac\baseApp\templates\ground" />
+      <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_admin" />
+      <recent name="D:\Programming\Python\Django\PrinterFac\Eprint_admin\templates\Eprint_admin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -512,13 +507,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19810577" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21389107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.30642503" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.30642503" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -527,8 +523,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32786885" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5015129" side_tool="true" weight="0.29787233" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" visible="true" weight="0.2948929" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.26853377" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49848714" weight="0.29324546" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.2676519" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3289689" />
       <window_info anchor="bottom" id="manage.py@PrinterFac" order="14" weight="0.3295082" />
       <window_info anchor="bottom" id="Messages" order="15" />
@@ -786,31 +782,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="25" column="74" selection-start-line="25" selection-start-column="74" selection-end-line="25" selection-end-column="74" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/crypto/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/checksum.py" />
     <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/confirm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="136" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="136" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/payment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -828,15 +807,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/crypto/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/checksum.py">
+    <entry file="file://$PROJECT_DIR$/Eprint_users/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+        <state relative-caret-position="339">
+          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/templates/ground/payment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/baseApp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="34" column="102" selection-start-line="34" selection-start-column="102" selection-end-line="34" selection-end-column="102" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#54#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
