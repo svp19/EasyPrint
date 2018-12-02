@@ -1,6 +1,6 @@
-The root consists Two directories:
+# The root consists 2 directories:
 
-## I] Apache Server
+## I. Apache Server
 - Serves as a content delivery network to serve media files
 - Stores all print documents in  `media/documents/user-hash/doc-name`
 - `EP_upload_post.php` transfers media from django to apache server
@@ -8,24 +8,27 @@ The root consists Two directories:
 - `PaytmKit`
   - All the macros can be configured from `PaytmKit/lib`
 
-## II]  Django Server
+## II. Django Server
 
+### To get an in-depth understanding of the code, it is recommended to watch this [playlist](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p).
 #### All the macros for the server can be configured in `PrinterFac/settings.py`
 
 - The functionality of each feature is defined in `app/views.py`
-- The templates rendered for each view is in the `app/templates/app/file`
-- urls are defined in `app/urls.py`
-- models stored for the database are in `app/models.py`
+- The templates rendered for each view is in the `app/templates/app/template.html`
+- All the urls are defined in `app/urls.py`
+- Models stored for the database are in `app/models.py`
   - Any changes to models.py has to be supplemented by
     `python manage.py makemigrations`
     `python manage.py migrate`
     to make the necessary changes to the database.
-- all form logic can be found in `app/forms.py`
+- All the form logic can be found in `app/forms.py`
  
 The django webapp consists of three main apps:
 
 A) baseApp [Eprint/PrinterFac/baseApp]
   - Comprises of following features, Login, Logout, Home, about page, and payments.
+  - On cancelling the print job by user, in the confirm portal, the user is redirected to this page where all the unconfirmed documents are removed.
+  - For the payment portal, all the variables are sent from `payment` view.
 
 B) Eprint_users [Eprint/PrinterFac/Eprint_users]
   - Comprises of Register, Profile, Upload document, History, Bill and activating account [acc_active_email.html is the template for activation email]
