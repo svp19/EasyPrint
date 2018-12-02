@@ -25,7 +25,7 @@ SECRET_KEY = 'd07c2ygv6x*lgzvz&r(+8pw&^65r1j@k@@j8djhu35@_p+v^ni'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.196.1.11']
 
 
 # Application definition
@@ -122,6 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -134,7 +136,7 @@ PAYTM_MID = 'fDlkIy64148311435937'
 
 EASY_PRINT_MEDIA_DIR = 'media/documents/'  # Change the upload directory here
 
-EASY_PRINT_MEDIA_HOST = 'http://localhost:80/'  # Server for Apache file uploads
+EASY_PRINT_MEDIA_HOST = 'http://10.196.1.11:80/'  # Server for Apache file uploads
 EASY_PRINT_MEDIA_UPLOAD_URL = EASY_PRINT_MEDIA_HOST + 'EP_upload_post.php'  # PHP script which handles the request
 EASY_PRINT_PRINTER_NAME = 'myprinter'  # lpadmin printer class name
 

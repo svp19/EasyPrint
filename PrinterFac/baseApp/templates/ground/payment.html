@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container-fluid col-md-8 content-below-nav">
         <center><h2 class="py-3">Please don't refresh this page...</h2></center>
-        <form id="form1" method="post" action="http://127.0.0.1/PaytmKit/pgRedirect.php">
+        <form id="form1" method="post" action="http://10.196.1.11/PaytmKit/pgRedirect.php">
             {% csrf_token %}
             <input type="hidden" name="MID" value="{{ MID }}">
             <input type="hidden" name="ORDER_ID" value="{{ ORDER_ID }}">

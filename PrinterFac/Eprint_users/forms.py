@@ -1,6 +1,8 @@
 from django import forms
+from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import DateField
 
 from . models import PrintDocs
 from .models import Profile
@@ -22,6 +24,8 @@ class UserRegisterForm(UserCreationForm):
 
 
 class ProfileForm(forms.ModelForm):
+    birth_date = DateField(input_formats=settings.DATE_INPUT_FORMATS)
+
     class Meta:
         model = Profile
         fields = ('bio', 'birth_date')

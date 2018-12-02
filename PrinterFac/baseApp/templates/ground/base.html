@@ -47,12 +47,13 @@
     </a>
 
     <!-- Toggler/collapsible Button -->
+
+
+    <!-- Navbar links -->    {% if user.is_authenticated %}
     <button class="navbar-toggler ml-auto hidden-sm-up float-xs-right" type="button" data-toggle="collapse"
             data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Navbar links -->    {% if user.is_authenticated %}
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto d-none d-md-block">
             <!-- Dropdown [hidden on small screens] -->
