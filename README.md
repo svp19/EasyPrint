@@ -36,9 +36,15 @@ If all went well then your command line prompt should now start with `(easyprint
 3. Give `www-data` permission to read, write, execute the media file: `sudo chown -R www-data media` 
 
 #### III. Configuring Printer server for Django
+If your printer is wired to the server or if it is connected through direct WiFi
 1. Get the `ipp:` of your printer using `lpinfo -v`
 2. Create a new printer class called `myprinter` using the `lpadmin` command-line utility for your online printer.
+3. Set it to default.
 Example : `lpadmin -p myprinter -E -v ipp://myprinter.local/ipp/print`
+
+If your printer is on wirelessly connected to the server
+1. Get the IP of your printer and add it to the printers in Linux settings.
+2. Set it to default.
 
 #### IV. Setting up Paytm
 1. In `PrinterFac` directory, go to `settings.py` and change the `PAYTM_MID` to your MID.
