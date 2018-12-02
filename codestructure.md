@@ -1,10 +1,12 @@
-# The root consists 2 directories:
+## The root consists of 2 directories:
+1. Apache Server
+2. PrinterFac
 
 ## I. Apache Server
 - Serves as a content delivery network to serve media files
 - Stores all print documents in  `media/documents/user-hash/doc-name`
 - `EP_upload_post.php` transfers media from django to apache server
-  - target directory(line 5), fileuploadsize(line 22) and filetype extension(line 15) can be configured here.
+  - target directory (line 5), file_upload_size (line 22) and filetype extension (line 15) can be configured here.
 - `PaytmKit`
   - All the macros can be configured from `PaytmKit/lib`
 
@@ -33,6 +35,8 @@ A) baseApp [Eprint/PrinterFac/baseApp]
 B) Eprint_users [Eprint/PrinterFac/Eprint_users]
   - Comprises of Register, Profile, Upload document, History, Bill and activating account [acc_active_email.html is the template for activation email]
   - In views.py, the view `confirm` has the logic for uploading the files to Apache server and sending the prints to the printer.
+  - For checking the PDFs during upload, `subset_pdf` function is used in `views.py`.
+  - 
 
 C) Eprint_admin [Eprint/PrinterFac/Eprint_admin]
   - Comprises of Task Management and Update Prices
