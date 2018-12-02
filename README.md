@@ -47,3 +47,4 @@ Example : `lpadmin -p myprinter -E -v ipp://myprinter.local/ipp/print`
 
 ## To-Do
 1. Get a domain for Paytm payments
+2. Add support for PostScript files
