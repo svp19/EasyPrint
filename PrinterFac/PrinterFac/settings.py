@@ -130,6 +130,8 @@ LOGIN_REDIRECT_URL = 'baseApp-home'
 
 LOGIN_URL = 'login'  # Redirect with @login_required
 
+PAYTM_MID = 'fDlkIy64148311435937'
+
 EASY_PRINT_MEDIA_DIR = 'media/documents/'  # Change the upload directory here
 
 EASY_PRINT_MEDIA_HOST = 'http://localhost:80/'  # Server for Apache file uploads

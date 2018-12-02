@@ -2,6 +2,7 @@
 import datetime
 import os
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
@@ -26,8 +27,8 @@ def payment(request):
     docs = PrintDocs.objects.filter(task_by=request.user, is_confirmed=True, paid=False)
     amount_due = sum([i.price for i in docs])
 
-    if amount_due > 0:
-        context = {"MID": "fDlkIy64148311435937", "TXN_AMOUNT": str(amount_due),
+    if amount_due > 0:  # Accept payments only if due is > 0
+        context = {"MID": settings.PAYTM_MID, "TXN_AMOUNT": str(amount_due),
                    "ORDER_ID": datetime.datetime.now().strftime('%S%I%H%d%m%Y') + str(docs.last().pk),
                    "CUST_ID": 'CUST001', "CHANNEL_ID": "WEB", "INDUSTRY_TYPE_ID": "Retail",
                    "WEBSITE": "WEB_STAGING"}
