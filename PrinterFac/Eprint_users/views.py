@@ -73,7 +73,7 @@ def register(request):
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
                     'token': account_activation_token.make_token(user),
                 })
-                mail_subject = 'Activate your blog account.'
+                mail_subject = 'Activate your EasyPrint account.'
                 to_email = user_form.cleaned_data.get('email')
                 email = EmailMessage(mail_subject, message, to=[to_email])
                 email.send()
@@ -111,7 +111,7 @@ def activate(request, uidb64, token):
 @login_required
 def history(request):
     filter_by = request.GET.get('filter_by') or 'all'
-    query = None
+    query = ''
 
     # Get printer queue
     run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
@@ -124,7 +124,6 @@ def history(request):
     PrintDocs.objects.filter(task_by=request.user, completed=False).exclude(id__in=pending).update(completed=True)
 
     # Checking for search query
-    query = ''
     if request.GET.get('query'):
         query = request.GET.get('query')
     docs = PrintDocs.objects.filter(file_name__icontains=query, is_confirmed=True, task_by=request.user).order_by(
@@ -138,17 +137,33 @@ def history(request):
     elif filter_by == "completed":
         docs = docs.filter(completed="True")
 
+    if len(docs) > 0 or request.GET.get('query') or request.GET.get('filter_by'):
+        show_table = True
+    else:
+        show_table = False
+
     return render(request, 'Eprint_users/history.html',
-                  {'tasks': docs, 'query': query, 'filter_by':filter_by})
+                  {'tasks': docs, 'query': query, 'filter_by': filter_by, 'show_table': show_table})
+
+
+@login_required
+def profile(request):
+    profile_form = ProfileForm(instance=request.user.profile)
+    if request.method == 'POST':
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if profile_form.is_valid():
+            profile_form.save()
+
+    return render(request, 'Eprint_users/profile.html', {'form': profile_form})
 
 
 @login_required
 def bill(request):
     # Documents which have been completed but not paid for
     unpaid = request.user.printdocs_set.filter(completed=True, paid=False, is_confirmed=True)
+
     return render(request, 'Eprint_users/bill.html',
-                  {'not_paid_tasks': unpaid,
-                   'total_due': sum([i.price for i in unpaid])})
+                  {'not_paid_tasks': unpaid, 'total_due': sum([i.price for i in unpaid])})
 
 
 @login_required
@@ -242,6 +257,6 @@ def confirm(request):
                 subprocess.run([cmd, *args], encoding='utf-8', stdout=subprocess.PIPE)
 
             form.save()
-            return redirect('payment')
+            return redirect('baseApp-home')
 
     return render(request, 'Eprint_users/confirm.html', {'form': form, 'price': print_doc.price})

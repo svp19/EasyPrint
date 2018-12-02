@@ -61,6 +61,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="{% url 'baseApp-home' %}">Home</a>
                     <a class="dropdown-item" href="{% url 'users-profile' %}">Profile</a>
+                    <a class="dropdown-item" href="{% url 'users-bill' %}">Bill</a>
                     <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                 </div>
             </li>
@@ -72,6 +73,9 @@
             </li>
             <li class="nav-item">
                 <a style="color: #fff;" href="{% url 'users-profile' %}"> Profile </a>
+            </li>
+            <li class="nav-item">
+                <a style="color: #fff;" href="{% url 'users-bill' %}"> Bill </a>
             </li>
             <li class="nav-item">
                 <a style="color: #fff;" href="{% url 'logout' %}"> Logout </a>
@@ -87,7 +91,7 @@
 {% endblock %}
 
 <!-- Footer -->
-<footer class="print-footer font-small rgba-teal-strong bottom">
+<footer style="background: rgba(8,8,8,0.62);" class="print-footer font-small bottom">
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-2 institute">

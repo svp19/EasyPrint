@@ -10,7 +10,3 @@ function checkChecked() {
         vic.innerHTML = "Confirm";
     }
 }
-
-function add_print() {
-
-}

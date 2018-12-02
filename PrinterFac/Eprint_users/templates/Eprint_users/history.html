@@ -2,7 +2,7 @@
 {% block content %}
     <div class="content-below-nav">
     <center>
-        {% if tasks or query or filter_by%}
+        {% if show_table is True %}
             <h2 class="py-3">History</h2>
             <div style="padding-bottom: 3%;">
                 <form method="get" class="form active-cyan-4">
@@ -85,7 +85,11 @@
                 </table>
             </div>
         {% else %}
-            There are no files given by you. Get started <a href="{% url 'users-upload' %}">here</a>!
+            <div style="transform: translateY(30vh)" class="align-center mt-5 p-3 ">
+            <h3>
+                There are no files given by you. Get started <a href="{% url 'users-upload' %}">here</a>!
+            </h3>
+            </div>
         {% endif %}
 
     </center>

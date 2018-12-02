@@ -1,31 +1,38 @@
 {% extends "ground/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-    <div class="content-below-nav">
-    <center>
-        {% if total_due > 0 %}
-            <h3>Payment Pending</h3><br><br>
-            <div class="table-responsive">
-            <table class="table-borderless bill-table">
-                <tr>
-                    <th>Document Name</th>
-                    <th>Date Added</th>
-                    <th>Price</th>
-                </tr>
-                {% for task in not_paid_tasks %}
-                    <tr>
-                        <td class="cloudy-knoxville-gradient">{{ task.file_name }}</td>
-                        <td class="cloudy-knoxville-gradient">{{ task.date_uploaded }}</td>
-                        <td class="cloudy-knoxville-gradient">{{ task.price }}</td>
-                    </tr>
-                {% endfor %}
-                <tr>
-                    <td class="dusty-grass-gradient" colspan="3"><strong>Grand Total: {{ total_due }}</strong></td>
-                </tr>
-            </table>
-            </div>
-        {% else %}
-            <h4>All your bills have been paid for. Yippee!</h4>
-        {% endif %}
-    </center>
+    <div class="content-below-nav container-fluid col-8">
+        <center>
+            {% if total_due > 0 %}
+                <h3>Payment Pending</h3><br><br>
+                <div class="table-responsive">
+                    <table class="table-borderless bill-table">
+                        <tr>
+                            <th>Document Name</th>
+                            <th>Date Added</th>
+                            <th>Price</th>
+                        </tr>
+                        {% for task in not_paid_tasks %}
+                            <tr>
+                                <td class="cloudy-knoxville-gradient">{{ task.file_name }}</td>
+                                <td class="cloudy-knoxville-gradient">{{ task.date_uploaded }}</td>
+                                <td class="cloudy-knoxville-gradient">{{ task.price }}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td class="dusty-grass-gradient" colspan="3"><strong>Grand
+                                Total: {{ total_due }}</strong>
+                                <a href="{% url 'payment' %}"><button class="small-btn btn btn-success" type="button">PAY</button> </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            {% else %}
+                <div style="transform: translateY(30vh)" class="align-center mt-5 p-3 ">
+                <h4 class="text-black">All your bills have been paid for. Yippee!</h4>
+                </div>
+            {% endif %}
+        </center>
+    </div>
     </div>
 {% endblock content %}

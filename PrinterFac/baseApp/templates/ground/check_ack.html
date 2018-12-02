@@ -6,21 +6,23 @@
     </script>
     <div class="container-fluid content-below-nav">
         <center>
+        <div style="transform: translateY(30vh)" class="align-center mt-5 p-3 ">
             {% if activate %}
-                <h2>
+                <h2 class="text-black">
                     Please check your email for confirmation <a href="https://www.gmail.com" target="_blank">here</a>.
                 </h2>
             {% else %}
                 {% if valid_registration %}
-                    <h2>
+                    <h2 class="text-black">
                         Your account has been activated successfully!
                     </h2>
                 {% else %}
-                    <h2>
+                    <h2 class="text-black">
                         Invalid registration
                     </h2>
                 {% endif %}
             {% endif %}
+        </div>
         </center>
     </div>
 {% endblock content %}

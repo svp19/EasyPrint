@@ -1,0 +1,28 @@
+{% extends "ground/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <script>
+        const x = document.getElementsByTagName("BODY")[0];
+        x.classList.add("white-bg");
+    </script>
+    <div class="content-below-nav mx-auto">
+        <div class="content-section card col-md-8 mx-auto">
+            <div class="media">
+                <div class="media-body">
+                    <h2 style="text-transform: uppercase;" class="text-black account-heading">{{ user.username }}</h2>
+                    <p class="text-secondary">{{ user.email }}</p>
+                </div>
+            </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Profile Info</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

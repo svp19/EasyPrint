@@ -18,7 +18,6 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     amount_due = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     bio = models.TextField(max_length=500, blank=True)
-    image = models.ImageField(default='default.png', upload_to='profile_pics')
     birth_date = models.DateField(null=True, blank=True)
     hash_url = models.UUIDField(default=uuid.uuid4, editable=False)
 
