@@ -50,8 +50,11 @@ If your printer is on wirelessly connected to the server
 1. In `PrinterFac` directory, go to `settings.py` and change the `PAYTM_MID` to your MID.
 2. In `Apache Server` directory, go to `PaytmKit/lib/config_paytm.php` and change the `PAYTM_MERCHANT_KEY` and `PAYTM_MERCHANT_MID`.
 
+## Databases Involved
+1. Only sqlite3 has been used in this program.
+2. To deploy using PostgreSQL, please refer to this [link](https://docs.djangoproject.com/en/2.1/ref/databases/). Note that all changes will be made in `PrinterFac/settings.py` only.
 
 ## To-Do
-1. Get a domain for Paytm payments
-2. Add support for PostScript files
-3. Resolve print status automatically
+- [ ] Get a domain for Paytm payments
+- [ ] Add support for PostScript files
+- [ ] Resolve print status automatically
