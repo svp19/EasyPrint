@@ -13,6 +13,7 @@
 + Simple, Responsive and mobile friendly UI
 
 ## Installation
+All the features of code can be found in detail in [codestructure.md](https://github.com/svp19/EPrint/blob/master/codestructure.md)
 Apache server is used to serve media files to the Admin page.
 Django server must be setup on a linux-based system and connected to the printer server.
 
