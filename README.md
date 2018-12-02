@@ -14,7 +14,9 @@
 
 ## Installation
 All the features of code can be found in detail in [codestructure.md](https://github.com/svp19/EPrint/blob/master/codestructure.md)
+
 Apache server is used to serve media files to the Admin page.
+
 Django server must be setup on a linux-based system and connected to the printer server.
 
 #### I. Setting up Django Server
@@ -30,6 +32,8 @@ Django server must be setup on a linux-based system and connected to the printer
 If all went well then your command line prompt should now start with `(easyprintvenv)`.
 
 9. Install the required python libraries: `pip install -r requirements.txt`
+
+**On the first run, create a superuser to have unrestricted access to any page by the command `python manage.py createsuperuser`**
 
 #### II. Setting up Apache Server
 1. Install [LAMP](https://howtoubuntu.org/how-to-install-lamp-on-ubuntu).
