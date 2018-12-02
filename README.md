@@ -43,3 +43,7 @@ Example : `lpadmin -p myprinter -E -v ipp://myprinter.local/ipp/print`
 #### IV. Setting up Paytm
 1. In `PrinterFac` directory, go to `settings.py` and change the `PAYTM_MID` to your MID.
 2. In `Apache Server` directory, go to `PaytmKit/lib/config_paytm.php` and change the `PAYTM_MERCHANT_KEY` and `PAYTM_MERCHANT_MID`.
+
+
+## To-Do
+1. Get a domain for Paytm payments
