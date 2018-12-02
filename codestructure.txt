@@ -1,0 +1,11 @@
+The root consists Two directories:
+
+I] Apache Server
+-Serves as a content delivery network to serve media files
+-stores all print documents in  media/documents/user-hash/doc-name
+-EP_upload_post.php transfers media from django to apache server
+  -target directory(line 5), fileuploadsize(line 22) and filetype extension(line 15) can be configured here.
+-PaytmKit
+  -All the macros can be configured from `PaytmKit/lib`
+
+2] 
