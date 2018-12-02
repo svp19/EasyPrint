@@ -28,7 +28,7 @@ Django server must be setup on a linux-based system and connected to the printer
 
 If all went well then your command line prompt should now start with `(easyprintvenv)`.
 
-9. Install the required python libraries: `pip install requirements.txt`
+9. Install the required python libraries: `pip install -r requirements.txt`
 
 #### II. Setting up Apache Server
 1. Install [LAMP](https://howtoubuntu.org/how-to-install-lamp-on-ubuntu).
@@ -39,3 +39,7 @@ If all went well then your command line prompt should now start with `(easyprint
 1. Get the `ipp:` of your printer using `lpinfo -v`
 2. Create a new printer class called `myprinter` using the `lpadmin` command-line utility for your online printer.
 Example : `lpadmin -p myprinter -E -v ipp://myprinter.local/ipp/print`
+
+#### IV. Setting up Paytm
+1. In `PrinterFac` directory, go to `settings.py` and change the `PAYTM_MID` to your MID.
+2. In `Apache Server` directory, go to `PaytmKit/lib/config_paytm.php` and change the `PAYTM_MERCHANT_KEY` and `PAYTM_MERCHANT_MID`.
