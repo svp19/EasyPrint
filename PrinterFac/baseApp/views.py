@@ -31,7 +31,7 @@ def payment(request):
     if settings.ALLOWED_HOSTS[0] != '':
         host = settings.ALLOWED_HOSTS[0]
     if amount_due > 0:  # Accept payments only if due is > 0
-        context = {"MID": settings.PAYTM_MID, "TXN_AMOUNT": str(amount_due),
+        context = {"MID": settings.MID, "TXN_AMOUNT": str(amount_due),
                    "ORDER_ID": datetime.datetime.now().strftime('%S%I%H%d%m%Y') + str(docs.last().pk),
                    "CUST_ID": 'CUST001', "CHANNEL_ID": "WEB", "INDUSTRY_TYPE_ID": "Retail",
                    "WEBSITE": "WEB_STAGING", 'HOST': host}
