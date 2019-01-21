@@ -60,6 +60,6 @@ If your printer is on wirelessly connected to the server
 2. To deploy using PostgreSQL, please refer to this [link](https://docs.djangoproject.com/en/2.1/ref/databases/). Note that all changes will be made in `PrinterFac/settings.py` only.
 
 ## To-Do
-- [x] ~~Integrate RazorPay payments~~
+- [ ] ~~Integrate RazorPay payments~~
 - [ ] Add support for PostScript files
 - [ ] Resolve print status automatically
