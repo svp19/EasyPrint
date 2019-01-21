@@ -141,9 +141,9 @@ EASY_PRINT_PRINTER_NAME = 'myprinter'  # lpadmin printer class name
 # Print Verification
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'svp.develop@gmail.com'
-EMAIL_HOST_PASSWORD = 'ZaqwsXMko145'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 25
 
-API_KEY = "rzp_test_g778ieJzYKWXZW"
-API_PASS = "yu5vgWaS3zzRgVgie865IBeV"
+API_KEY = ""
+API_PASS = ""
