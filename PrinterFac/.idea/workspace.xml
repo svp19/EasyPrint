@@ -1,64 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" line="23" mnemonic="4" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/documents/EPtest_q67eiEN.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/Team-numbers.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/Teams.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/Teams1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/blank.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/blank_MrWE2VN.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/download.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/documents/ex_RGr4wqo.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay-1.1.1-py3.6.egg-info/PKG-INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay-1.1.1-py3.6.egg-info/SOURCES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay-1.1.1-py3.6.egg-info/dependency_links.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay-1.1.1-py3.6.egg-info/installed-files.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay-1.1.1-py3.6.egg-info/requires.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay-1.1.1-py3.6.egg-info/top_level.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/ca-bundle.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/constants/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/constants/error_code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/constants/http_status_code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/constants/url.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/addon.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/card.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/customer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/invoice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/order.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/payment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/plan.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/refund.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/subscription.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/token.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/transfer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/resources/virtual_account.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/utility/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/razorpay/utility/utility.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Apache Server/PaytmKit/TxnStatus.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Apache Server/PaytmKit/TxnTest.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Apache Server/PaytmKit/lib/config_paytm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Apache Server/PaytmKit/lib/encdec_paytm.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Apache Server/PaytmKit/pgRedirect.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Apache Server/PaytmKit/pgResponse.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Eprint_users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Eprint_users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PrinterFac/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/PrinterFac/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/templates/ground/payment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/baseApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/baseApp/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
-    </list>
+    <list default="true" id="111e09bf-20c0-4c78-bc33-d1e02187087b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +232,7 @@
           <entry key="css" value="642" />
           <entry key="html" value="3964" />
           <entry key="js" value="23" />
-          <entry key="py" value="6188" />
+          <entry key="py" value="6189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -297,27 +240,27 @@
           <entry key="CSS" value="642" />
           <entry key="HTML" value="3964" />
           <entry key="JavaScript" value="23" />
-          <entry key="Python" value="6806" />
+          <entry key="Python" value="6807" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+            <state relative-caret-position="-195">
+              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="144" column="29" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+            <state relative-caret-position="258">
+              <caret line="142" column="29" lean-forward="true" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -421,9 +364,9 @@
         <option value="$PROJECT_DIR$/baseApp/views.py" />
         <option value="$PROJECT_DIR$/baseApp/urls.py" />
         <option value="$PROJECT_DIR$/baseApp/templates/ground/payment.html" />
-        <option value="$PROJECT_DIR$/PrinterFac/settings.py" />
         <option value="$PROJECT_DIR$/Eprint_users/views.py" />
         <option value="$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html" />
+        <option value="$PROJECT_DIR$/PrinterFac/settings.py" />
       </list>
     </option>
   </component>
@@ -575,7 +518,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="27" width="1313" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21310182" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -930,17 +872,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
+    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="144" column="29" selection-start-line="144" selection-start-column="29" selection-end-line="144" selection-end-column="29" />
+        <state relative-caret-position="-195">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Eprint_users/templates/Eprint_users/bill.html">
+    <entry file="file://$PROJECT_DIR$/PrinterFac/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="39" lean-forward="true" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        <state relative-caret-position="258">
+          <caret line="142" column="29" lean-forward="true" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
         </state>
       </provider>
     </entry>
