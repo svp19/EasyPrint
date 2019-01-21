@@ -11,5 +11,4 @@ urlpatterns = [
     path('', views.login, name='login'),
     path('login/', auth_views.LoginView.as_view(template_name='ground/login.html'), name='loginPage'),
     path('logout/', auth_views.LogoutView.as_view(template_name='ground/logout.html'), name='logout'),
-    path('payment/', views.payment, name='payment'),
 ]
