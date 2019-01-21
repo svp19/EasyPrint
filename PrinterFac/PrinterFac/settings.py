@@ -25,7 +25,7 @@ SECRET_KEY = 'd07c2ygv6x*lgzvz&r(+8pw&^65r1j@k@@j8djhu35@_p+v^ni'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.196.1.11']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -132,11 +132,9 @@ LOGIN_REDIRECT_URL = 'baseApp-home'
 
 LOGIN_URL = 'login'  # Redirect with @login_required
 
-PAYTM_MID = 'fDlkIy64148311435937'
-
 EASY_PRINT_MEDIA_DIR = 'media/documents/'  # Change the upload directory here
 
-EASY_PRINT_MEDIA_HOST = 'http://10.196.1.11:80/'  # Server for Apache file uploads
+EASY_PRINT_MEDIA_HOST = 'http://localhost:80/'  # Server for Apache file uploads
 EASY_PRINT_MEDIA_UPLOAD_URL = EASY_PRINT_MEDIA_HOST + 'EP_upload_post.php'  # PHP script which handles the request
 EASY_PRINT_PRINTER_NAME = 'myprinter'  # lpadmin printer class name
 
@@ -147,5 +145,5 @@ EMAIL_HOST_USER = 'svp.develop@gmail.com'
 EMAIL_HOST_PASSWORD = 'ZaqwsXMko145'
 EMAIL_PORT = 25
 
-
-
+API_KEY = "rzp_test_g778ieJzYKWXZW"
+API_PASS = "yu5vgWaS3zzRgVgie865IBeV"

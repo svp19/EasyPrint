@@ -2,6 +2,7 @@ import datetime
 import subprocess
 
 import requests
+from django.views.decorators.csrf import csrf_exempt
 from pdfrw import PdfReader, PdfWriter
 
 from django.shortcuts import render, redirect
@@ -19,6 +20,8 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from Eprint_admin.models import RatePerPage
 from django.conf import settings
+
+import razorpay
 
 # Media Upload Server
 media_upload_url = settings.EASY_PRINT_MEDIA_UPLOAD_URL
@@ -157,13 +160,30 @@ def profile(request):
     return render(request, 'Eprint_users/profile.html', {'form': profile_form})
 
 
-@login_required
+@csrf_exempt
 def bill(request):
-    # Documents which have been completed but not paid for
-    unpaid = request.user.printdocs_set.filter(completed=True, paid=False, is_confirmed=True)
+    if request.method == 'POST':
 
-    return render(request, 'Eprint_users/bill.html',
-                  {'not_paid_tasks': unpaid, 'total_due': sum([i.price for i in unpaid])})
+        username = request.POST.get('hidden')
+        unpaid = PrintDocs.objects.filter(task_by__username=username, completed=True, paid=False, is_confirmed=True)
+        amount_due = str(int(sum([i.price for i in unpaid]) * 100))
+
+        client = razorpay.Client(auth=(settings.API_KEY, settings.API_PASS))
+        client.set_app_details({"title": "PrinterFac", "version": "2.0"})
+
+        payment_id = request.POST.get("razorpay_payment_id")
+        client.payment.capture(payment_id, amount_due)
+        unpaid.update(paid=True)
+
+        return redirect('users-bill')
+
+    else:
+        unpaid = request.user.printdocs_set.filter(completed=True, paid=False, is_confirmed=True)
+        amount_due = int(sum([i.price for i in unpaid]) * 100)
+
+        return render(request, 'Eprint_users/bill.html',
+                      {'not_paid_tasks': unpaid, 'total_due': amount_due, 'total_due_rupee': amount_due/100,
+                       'dict_username': request.user.username, 'api_key': settings.API_KEY})
 
 
 @login_required

@@ -21,15 +21,34 @@
                         {% endfor %}
                         <tr>
                             <td class="dusty-grass-gradient" colspan="3"><strong>Grand
-                                Total: {{ total_due }}</strong>
-                                <a href="{% url 'payment' %}"><button class="small-btn btn btn-success" type="button">PAY</button> </a>
+                                Total: ₹{{ total_due_rupee }}</strong>
+                                <a href="#">
+                                    <button class="small-btn btn btn-success" type="button">PAY</button>
+                                </a>
                             </td>
                         </tr>
                     </table>
                 </div>
+                <form method="POST">
+                    {#        {% csrf_token %}#}
+
+                    <script
+                            src="https://checkout.razorpay.com/v1/checkout.js"
+                            data-key="{{ api_key }}"
+                            data-amount="{{ total_due }}"
+                            data-buttontext="Pay with Razorpay"
+                            data-name="Merchant Name"
+                            data-description="Purchase Description"
+                            data-prefill.name="Anudeep Tubati"
+                            data-prefill.email="test@test.com"
+                            data-theme.color="#267d7d"
+                    ></script>
+                    <!--data-image="https://your-awesome-site.com/your_logo.jpg"-->
+                    <input type="hidden" value="{{ dict_username }}" name="hidden">
+                </form>
             {% else %}
                 <div style="transform: translateY(30vh)" class="align-center mt-5 p-3 ">
-                <h4 style="color: white;">All your bills have been paid for. Yippee!</h4>
+                    <h4 style="color: white;">All your bills have been paid for. Yippee!</h4>
                 </div>
             {% endif %}
         </center>
