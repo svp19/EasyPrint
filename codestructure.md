@@ -7,8 +7,6 @@
 - Stores all print documents in  `media/documents/user-hash/doc-name`
 - `EP_upload_post.php` transfers media from django to apache server
   - target directory (line 5), file_upload_size (line 22) and filetype extension (line 15) can be configured here.
-- `PaytmKit`
-  - All the macros can be configured from [`PaytmKit/lib/config_paytm.php`](https://github.com/svp19/EPrint/blob/master/Apache%20Server/PaytmKit/lib/config_paytm.php)
 
 ## II. Django Server
 
