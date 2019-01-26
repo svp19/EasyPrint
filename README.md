@@ -1,5 +1,5 @@
 # EPrint
-*EP* is a django-MySQL based webapp that aims at enabling users to utilize the printing facilities of the institution more effectively. The Portal features options to upload files, check print status and view/pay e-bills on the fly through the intranet.
+*EP* is a Django-SQL based webapp that aims at enabling users to utilize the printing facilities of the institution more effectively. The Portal features options to upload files, check print status and view/pay e-bills on the fly through the intranet.
 
 ## Authors
 + **Anudeep Tubati** [170010039@iitdh.ac.in]
@@ -51,9 +51,8 @@ If your printer is on wirelessly connected to the server
 1. Get the IP of your printer and add it to the printers in Linux settings.
 2. Set it to default.
 
-#### IV. Setting up Paytm
-1. In `PrinterFac` directory, go to `settings.py` and change the `PAYTM_MID` to your MID.
-2. In `Apache Server` directory, go to `PaytmKit/lib/config_paytm.php` and change the `PAYTM_MERCHANT_KEY` and `PAYTM_MERCHANT_MID`.
+#### IV. Setting up RazorPay
+1. In `PrinterFac` directory, go to `settings.py` and change the `API_KEY` to your razorpay_api_key and `API_PASS` to your razorpay_api_pass.
 
 ## Databases Involved
 1. Only sqlite3 has been used in this program.
