@@ -139,11 +139,14 @@ EASY_PRINT_MEDIA_UPLOAD_URL = EASY_PRINT_MEDIA_HOST + 'EP_upload_post.php'  # PH
 EASY_PRINT_PRINTER_NAME = 'myprinter'  # lpadmin printer class name
 
 # Print Verification
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'svp.develop@gmail.com'
-EMAIL_HOST_PASSWORD = 'ZaqwsXMko145'
-EMAIL_PORT = 25
+EMAIL_USE_SSL = True
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'pipatelandy@gmail.com'
+EMAIL_HOST_PASSWORD = 'anudeep$'
+
+# DEFAULT_FROM_EMAIL = 'EasyPrintTeam <noreply@example.com>'
 
 API_KEY = "rzp_test_g778ieJzYKWXZW"
 API_PASS = "yu5vgWaS3zzRgVgie865IBeV"
