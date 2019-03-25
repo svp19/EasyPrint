@@ -19,7 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd07c2ygv6x*lgzvz&r(+8pw&^65r1j@k@@j8djhu35@_p+v^ni'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -140,9 +139,4 @@ EASY_PRINT_PRINTER_NAME = 'myprinter'  # lpadmin printer class name
 # Print Verification
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'svp.develop@gmail.com'
-EMAIL_HOST_PASSWORD = 'ZaqwsXMko145'
-EMAIL_PORT = 25
 
-API_KEY = "rzp_test_g778ieJzYKWXZW"
-API_PASS = "yu5vgWaS3zzRgVgie865IBeV"
