@@ -1,5 +1,9 @@
+django
+django-crispy-forms
 pdfrw
 PyPDF2
 validate_email
 py3DNS
 pycrypto
+requests
+razorpay
