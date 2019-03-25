@@ -16,6 +16,7 @@ def get_sentinel_user():  # Sets a user to deleted when a task of a delete user 
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    is_faculty = models.BooleanField(default=False)
     amount_due = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     bio = models.TextField(max_length=500, blank=True)
     birth_date = models.DateField(null=True, blank=True)

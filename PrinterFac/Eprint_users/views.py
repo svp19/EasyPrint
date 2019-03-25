@@ -1,4 +1,6 @@
 import datetime
+import os
+import smtplib
 import subprocess
 
 import requests
@@ -70,16 +72,19 @@ def register(request):
 
                 # Send account activation link to email
                 current_site = get_current_site(request)
-                message = render_to_string('Eprint_users/acc_active_email.html', {
+                body = render_to_string('Eprint_users/acc_active_email.html', {
                     'user': user,
                     'domain': current_site.domain,
                     'uid': urlsafe_base64_encode(force_bytes(user.pk)).decode(),
                     'token': account_activation_token.make_token(user),
                 })
+
                 mail_subject = 'Activate your EasyPrint account.'
                 to_email = user_form.cleaned_data.get('email')
-                email = EmailMessage(mail_subject, message, to=[to_email])
-                email.send()
+                server = smtplib.SMTP_SSL("smtp.googlemail.com", 465)
+                server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+                final_email = 'Subject: {}{}'.format(mail_subject, body)
+                server.sendmail(settings.EMAIL_HOST_USER, to_email, final_email)
 
                 return render(request, 'ground/check_ack.html', {'activate': True})
                 # profile_form = ProfileForm(request.POST, instance=user)
@@ -105,7 +110,10 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
-        # return redirect('home')
+        if check_faculty(user.email):
+            user.profile.is_faculty = True
+            user.profile.save()
+
         return render(request, 'ground/check_ack.html', {'valid_registration': True})
     else:
         return render(request, 'ground/check_ack.html', {'valid_registration': False})
@@ -123,7 +131,14 @@ def history(request):
     # Update the objects which aren't completed and not in the print queue
     s = [line.split() for line in output.split('\n')]
     s = s[2:]
-    pending = [int(row[3]) for row in s if len(row) >= 4 and int(row[1]) == request.user.id]
+    pending = []
+    for row in s:
+        try:
+            if len(row) >=4 and int(row[1]) == request.user.id:
+                pending.append(int(row[3]))
+        except ValueError:  # Someone else printed, hence row[3] may have a string of the user and we should ignore it
+            pass
+
     PrintDocs.objects.filter(task_by=request.user, completed=False).exclude(id__in=pending).update(completed=True)
 
     # Checking for search query
@@ -249,21 +264,22 @@ def confirm(request):
     if request.method == "POST":
         form = ConfirmForm(request.POST, instance=print_doc)
 
+        user = User.objects.get(username=request.user)
         if form.is_valid():
             if request.POST.get('is_confirmed'):
 
                 # Uploading to another Server
-                files = open(print_doc.document.url, 'rb')
-                request_sender = requests.post(media_upload_url,
-                                               files={'fileToUpload': files},
-                                               data={'safe_url': request.user.profile.hash_url.hex})
+                if not user.profile.is_faculty:
+                    files = open(print_doc.document.url, 'rb')
+                    request_sender = requests.post(media_upload_url,
+                                                   files={'fileToUpload': files},
+                                                   data={'safe_url': request.user.profile.hash_url.hex})
 
-                if request_sender.status_code != 200:
-                    # form.add_error('is_confirmed', "File may exceed")
-                    return redirect('users-upload')
+                    if request_sender.status_code != 200:
+                        # form.add_error('is_confirmed', "File may exceed")
+                        return redirect('users-upload')
 
                 # Update billing information
-                user = User.objects.get(username=request.user)
                 new_amount_due = float(print_doc.price) + float(user.profile.amount_due)
                 Profile.objects.filter(user=request.user).update(amount_due=new_amount_due)
 
@@ -276,7 +292,21 @@ def confirm(request):
                 # args += ["-d " + settings.EASY_PRINT_PRINTER_NAME]  # Not working for now
                 subprocess.run([cmd, *args], encoding='utf-8', stdout=subprocess.PIPE)
 
+                # Delete file if user is faculty for maintaining confidentiality
+                if user.profile.is_faculty:
+                    file_path = print_doc.document.name
+                    if os.path.isfile(file_path):
+                        os.remove(file_path)
+
             form.save()
             return redirect('baseApp-home')
 
     return render(request, 'Eprint_users/confirm.html', {'form': form, 'price': print_doc.price})
+
+
+def check_faculty(email):
+    try:
+        int(email.split('@')[0])
+    except ValueError:
+        return True
+    return False

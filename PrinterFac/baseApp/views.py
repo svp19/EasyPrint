@@ -1,14 +1,10 @@
 # This is where the view logic of the page is made up
 import os
 
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from Eprint_users.models import PrintDocs
-from django.views.decorators.csrf import csrf_exempt
-
-import razorpay
 
 
 @login_required
