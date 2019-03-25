@@ -1,15 +1,19 @@
 # This is where the view logic of the page is made up
+import datetime
 import os
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-
 from Eprint_users.models import PrintDocs
+from Eprint_users.views import mark_completed
 
 
 @login_required
 def home(request):
     # Delete unconfirmed tasks
+    # Launch Background to check if docs printed( one minute checker at intervals at 30)
+    run_till = datetime.datetime.now() + datetime.timedelta(minutes=1)
+    mark_completed(request.user.id, repeat=30, repeat_until=run_till,
+                   verbose_name=f"Notify user:{request.user.id} minutely", creator=request.user)
     print_docs = PrintDocs.objects.filter(task_by=request.user, is_confirmed=False)
     for doc in print_docs:
         file_path = doc.document.name

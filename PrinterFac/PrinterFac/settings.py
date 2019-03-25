@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'background_task',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,6 @@ EMAIL_PORT = 25
 
 API_KEY = "rzp_test_g778ieJzYKWXZW"
 API_PASS = "yu5vgWaS3zzRgVgie865IBeV"
+
+# Background
+MAX_ATTEMPTS = 1
