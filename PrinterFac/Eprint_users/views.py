@@ -2,11 +2,10 @@ import datetime
 import os
 import smtplib
 import subprocess
-
 import requests
+from background_task.models import Task
 from django.views.decorators.csrf import csrf_exempt
 from pdfrw import PdfReader, PdfWriter
-
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -22,11 +21,62 @@ from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 from Eprint_admin.models import RatePerPage
 from django.conf import settings
-
 import razorpay
+from background_task import background
 
 # Media Upload Server
 media_upload_url = settings.EASY_PRINT_MEDIA_UPLOAD_URL
+
+
+@background(schedule=20)
+def mark_completed(user_id):
+    print("Enter Background mark")
+    run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
+    output = run_queue.stdout
+
+    # Update the objects which aren't completed(to be marked as completed) and not in the print queue
+    s = [line.split() for line in output.split('\n')]
+    s = s[2:]
+    pending = []
+
+    for row in s:
+        try:
+            if len(row) >= 4 and int(row[1]) == user_id:
+                pending.append(int(row[3]))
+        except ValueError:  # Someone else printed, hence row[3] may have a string of the user and we should ignore it
+            pass
+
+    user = User.objects.get(pk=user_id)
+    qset = PrintDocs.objects.filter(task_by=user, completed=False).exclude(id__in=pending)
+    doc_names = [doc.file_name for doc in qset]
+    # Print documents updated in log
+    print(doc_names)
+    # Update documents in database
+    PrintDocs.objects.filter(task_by=user, completed=False).exclude(id__in=pending).update(completed=True)
+    # Send email notification to user if document printed.
+    doc_names_str = ', '.join(doc_names)
+    if len(doc_names) > 0:
+        notify_user(user_id, doc_names_str)
+
+
+def notify_user(user_id, doc_names):
+    # Mark printed docs as completed
+    mark_completed(user_id)
+
+    user = User.objects.get(pk=user_id)
+    print('Notification, HERE I COME!!!')
+    print(user.email)
+    print(user)
+    mail_subject = 'EasyPrint: Document Printed Successfully'
+    body = 'Dear {}, \nYour document(s):{} has been printed and is ready for collection. Please collect it' \
+           ' from the Printer Room, Library, IIT Dharwad.' \
+           'Thank You for using EasyPrint services. \nEasyPrint, IIT Dharwad'.format(user.username, doc_names)
+    to_email = user.email
+    server = smtplib.SMTP_SSL("smtp.googlemail.com", 465)
+    server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+    final_email = 'Subject: {} \n{}'.format(mail_subject, body)
+    server.sendmail(settings.EMAIL_HOST_USER, to_email, final_email)
+    print('Sent Notif')
 
 
 def subset_pdf(inp_file, ranges):  # Create PDF with subset pages
@@ -124,22 +174,22 @@ def history(request):
     filter_by = request.GET.get('filter_by') or 'all'
     query = ''
 
-    # Get printer queue
-    run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
-    output = run_queue.stdout
-
-    # Update the objects which aren't completed and not in the print queue
-    s = [line.split() for line in output.split('\n')]
-    s = s[2:]
-    pending = []
-    for row in s:
-        try:
-            if len(row) >=4 and int(row[1]) == request.user.id:
-                pending.append(int(row[3]))
-        except ValueError:  # Someone else printed, hence row[3] may have a string of the user and we should ignore it
-            pass
-
-    PrintDocs.objects.filter(task_by=request.user, completed=False).exclude(id__in=pending).update(completed=True)
+    # # Get printer queue
+    # run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
+    # output = run_queue.stdout
+    #
+    # # Update the objects which aren't completed(to be marked as completed) and not in the print queue
+    # s = [line.split() for line in output.split('\n')]
+    # s = s[2:]
+    # pending = []
+    # for row in s:
+    #     try:
+    #         if len(row) >= 4 and int(row[1]) == request.user.id:
+    #             pending.append(int(row[3]))
+    #     except ValueError:  # Someone else printed, hence row[3] may have a string of the user and we should ignore it
+    #         pass
+    #
+    # PrintDocs.objects.filter(task_by=request.user, completed=False).exclude(id__in=pending).update(completed=True)
 
     # Checking for search query
     if request.GET.get('query'):
@@ -197,7 +247,7 @@ def bill(request):
         amount_due = int(sum([i.price for i in unpaid]) * 100)
 
         return render(request, 'Eprint_users/bill.html',
-                      {'not_paid_tasks': unpaid, 'total_due': amount_due, 'total_due_rupee': amount_due/100,
+                      {'not_paid_tasks': unpaid, 'total_due': amount_due, 'total_due_rupee': amount_due / 100,
                        'dict_username': request.user.username, 'api_key': settings.API_KEY})
 
 
@@ -297,6 +347,11 @@ def confirm(request):
                     file_path = print_doc.document.name
                     if os.path.isfile(file_path):
                         os.remove(file_path)
+
+                # Launch Background to check if docs printed
+                run_till = datetime.datetime.now() + datetime.timedelta(days=1)
+                mark_completed(request.user.id, repeat=Task.HOURLY, repeat_until=run_till,
+                               verbose_name=f"Notify user:{user.id} hourly", creator=user)
 
             form.save()
             return redirect('baseApp-home')
