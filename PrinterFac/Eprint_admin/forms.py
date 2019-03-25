@@ -12,11 +12,11 @@ class UpdateForm(forms.ModelForm):
 class ChangeRate(forms.ModelForm):
     class Meta:
         model = RatePerPage
-        fields = ['rppBW', 'rppC']
+        fields = ['rppBW']
 
     def __init__(self, *args, **kwargs):
         super(ChangeRate, self).__init__(*args, **kwargs)
         self.fields['rppBW'].label = "Black and White"
-        self.fields['rppC'].label = "Colour"
+        # self.fields['rppC'].label = "Colour"
         self.fields['rppBW'].help_text = "Per Page (One Side)"
-        self.fields['rppC'].help_text = "Per Page (One Side)"
+        # self.fields['rppC'].help_text = "Per Page (One Side)"

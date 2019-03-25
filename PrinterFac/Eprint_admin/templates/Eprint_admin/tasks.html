@@ -71,7 +71,7 @@
                                 <td class="deep-blue-gradient"><strong>{{ mytask.0.file_name }}</strong><br>
                                     <span class="small text-muted">{{ mytask.0.date_uploaded }}</span>
                                 </td>
-                                <td>{{ mytask.0.task_by }}</td>
+                                <td>{{ mytask.0.task_by.email }}</td>
                                 <td>
                                     <table class="mx-auto">
                                         {% for element in mytask.1 %}
@@ -90,23 +90,25 @@
                                     </table>
                                 </td>
                                 <td>
-                                    <div class="col">
-                                        <a target="_blank"
-                                           href="
-                                                   {{ host }}{{ media_dir }}{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
-                                            <button onclick="" type="button"
-                                                    class="small-btn btn action-btn shadow-none">
-                                                <i style="padding: 0" class="fas fa-eye"></i>
-                                            </button>
-                                        </a>
-                                    </div>
-                                    <div class="col">
-                                        <label class="bs-switch">
-                                            <input style="align-self: baseline;" onclick="add_print();" type="checkbox"
-                                                   name="reprint{{ mytask.0.id }}" id="reprint{{ mytask.0.id }}">
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </div>
+                                    {% if not mytask.0.task_by.profile.is_faculty %}
+                                        <div class="col">
+                                            <a target="_blank"
+                                               href="
+                                                       {{ host }}{{ media_dir }}{{ mytask.0.task_by.profile.hash_url.hex }}/{{ mytask.3 }}">
+                                                <button onclick="" type="button"
+                                                        class="small-btn btn action-btn shadow-none">
+                                                    <i style="padding: 0" class="fas fa-eye"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                        <div class="col">
+                                            <label class="bs-switch">
+                                                <input style="align-self: baseline;" onclick="add_print();" type="checkbox"
+                                                       name="reprint{{ mytask.0.id }}" id="reprint{{ mytask.0.id }}">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    {% endif %}
                                 </td>
                             </tr>
                         {% endfor %}

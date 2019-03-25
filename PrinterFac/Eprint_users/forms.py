@@ -54,7 +54,7 @@ class PrintForm(forms.ModelForm):
 
     class Meta:
         model = PrintDocs
-        fields = ['description', 'document', 'colour', 'copies', ]
+        fields = ['description', 'document', 'copies', ]
 
 
 class ConfirmForm(forms.ModelForm):  # Form for confirming print task
