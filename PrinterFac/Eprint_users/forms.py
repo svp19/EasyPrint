@@ -13,7 +13,7 @@ class UserRegisterForm(UserCreationForm):
 
     def clean_email(self):  # Define own cleaning method for organisations
         email_passed = self.cleaned_data.get('email')
-        if '@iitdh.ac.in' not in email_passed:
+        if not email_passed.endswith('@iitdh.ac.in'):
             raise forms.ValidationError("Invalid Email. Please register with your email registered to IIT Dharwad")
 
         return email_passed
