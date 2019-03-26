@@ -23,9 +23,35 @@ from Eprint_admin.models import RatePerPage
 from django.conf import settings
 import razorpay
 from background_task import background
+from django.utils import timezone
 
 # Media Upload Server
 media_upload_url = settings.EASY_PRINT_MEDIA_UPLOAD_URL
+media_delete_url = "http://localhost:80/EP_delete_post.php"
+
+
+@background(schedule=10)
+def clean_stored_media(user_id):
+    print(f"Enter Clean {user_id}")
+    user = User.objects.get(pk=user_id)
+    now = timezone.now()
+    print_docs = PrintDocs.objects.filter(task_by=user, date_uploaded__lte=now - datetime.timedelta(days=6),
+                                          completed=True)
+    # Remove physical files
+    for doc in print_docs:
+        file_path = doc.document.name
+        file_name = str(file_path).replace('media/documents/', '')
+        # Remove from django storage
+        if os.path.isfile(file_path):
+            print(f"deleting: {file_path}")
+            os.remove(file_path)
+        # Remove from content delivery network[Apache Server]
+        print(f"php: {file_name}")
+        request_sender = requests.post(media_delete_url,
+                                       data={'safe_url': user.profile.hash_url.hex, 'fileToDelete': file_name})
+        if request_sender.status_code != 200:
+            print(f'Error deleting {file_name}')
+    # Not deleting from Database as permanent record needs to be maintained.
 
 
 @background(schedule=20)
@@ -160,6 +186,10 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         login(request, user)
+        # delete test
+        # Launch Background to check if docs printed
+        clean_stored_media(request.user.id, repeat=Task.WEEKLY, repeat_until=None,
+                           verbose_name=f"Clean Media user:{request.user.id} WEEKLY", creator=request.user)
         if check_faculty(user.email):
             user.profile.is_faculty = True
             user.profile.save()
