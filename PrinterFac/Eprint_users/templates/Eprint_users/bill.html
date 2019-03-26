@@ -1,5 +1,6 @@
 {% extends "ground/base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
     <div class="content-below-nav container-fluid col-8">
         <center>
@@ -30,12 +31,12 @@
                                             data-amount="{{ total_due }}"
                                             data-buttontext="Pay"
                                             data-name="EasyPrint"
-                                            data-description="Your printing bill"
+                                            data-description="Amount to be paid"
                                             data-prefill.name="John Doe"
                                             data-prefill.email="your_email@iitdh.ac.in"
                                             data-theme.color="#267d7d"
+                                            data-image="{% static 'ground/favicon.png' %}"
                                     ></script>
-                                    <!--data-image="https://easyprint.com/logo.jpg"-->
                                     <input type="hidden" value="{{ dict_username }}" name="hidden">
                                 </form>
                             </td>
