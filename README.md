@@ -28,6 +28,7 @@ Django server must be setup on a linux-based system and connected to the printer
 6. Create a new virtualenv called `easyprintvenv`: `pyenv virtualenv 3.6.4 easyprintvenv`.
 7. Set the local virtualenv to `easyprintvenv`: `pyenv local easyprintvenv`.
 8. Reload the `pyenv` environment: `pyenv rehash`.
+9. As it is better to use environment variables for all the passwords and keys, configure your environment variables (like [this](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables)) appropriately to match those in `settings.py`
 
 If all went well then your command line prompt should now start with `(easyprintvenv)`.
 
