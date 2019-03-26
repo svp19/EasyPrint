@@ -1,0 +1,16 @@
+{% extends "ground/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container-fluid col-md-4 content-below-nav">
+        <div class="card p-3 ">
+            <div class="mt-2">
+                <center>
+                    <h4 class="text-black">Confirm Your Action<br></h4>
+                    <h6 style="color: red;">NOTE: Once changed, cannot be undone</h6>
+                    <a href="/users/collected/?confirm_doc={{ doc_id }}&confirm=True"><button id="vic_but" class="btn amy-crisp-gradient">Confirm</button></a>
+                </center>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

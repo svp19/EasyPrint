@@ -200,26 +200,23 @@ def activate(request, uidb64, token):
 
 
 @login_required
+def collected(request):
+    if request.method == 'GET' and request.GET.get('confirm_doc') is not None:
+        doc = PrintDocs.objects.filter(pk=request.GET.get('confirm_doc')).first()
+        if doc.task_by.pk == request.user.pk:
+            if request.GET.get('confirm') is not None:
+                PrintDocs.objects.filter(pk=doc.pk).update(collected=True)
+                return redirect('users-history')
+            return render(request, 'Eprint_users/confirm_collected.html', {'doc_id': doc.pk})
+        else:
+            redirect('users-history')
+    return redirect('users-history')
+
+
+@login_required
 def history(request):
     filter_by = request.GET.get('filter_by') or 'all'
     query = ''
-
-    # # Get printer queue
-    # run_queue = subprocess.run(["lpq"], encoding='utf-8', stdout=subprocess.PIPE)
-    # output = run_queue.stdout
-    #
-    # # Update the objects which aren't completed(to be marked as completed) and not in the print queue
-    # s = [line.split() for line in output.split('\n')]
-    # s = s[2:]
-    # pending = []
-    # for row in s:
-    #     try:
-    #         if len(row) >= 4 and int(row[1]) == request.user.id:
-    #             pending.append(int(row[3]))
-    #     except ValueError:  # Someone else printed, hence row[3] may have a string of the user and we should ignore it
-    #         pass
-    #
-    # PrintDocs.objects.filter(task_by=request.user, completed=False).exclude(id__in=pending).update(completed=True)
 
     # Checking for search query
     if request.GET.get('query'):
@@ -368,6 +365,8 @@ def confirm(request):
                 args = ["-U " + str(request.user.id)]
                 args += ["-n " + str(print_doc.copies)]
                 args += ["-t " + str(print_doc.id)]
+                if user.profile.has_high_prt:
+                    args += ["-q 100"]
                 args += [print_doc.document.name]
                 # args += ["-d " + settings.EASY_PRINT_PRINTER_NAME]  # Not working for now
                 subprocess.run([cmd, *args], encoding='utf-8', stdout=subprocess.PIPE)
