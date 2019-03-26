@@ -32,6 +32,7 @@
 	else 
 	{
 	    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+	        chmod($target_file, 0777);
 	        echo "Succesfully Uploaded File" ;
 	    } 
 	    else 
